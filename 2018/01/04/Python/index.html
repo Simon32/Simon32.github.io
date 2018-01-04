@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="hexo的更新口令 hexo g -d 在md中首行缩进：输入法切换全角模式，再按空格 输入标题的时候记得冒号后又一个空格">
+<meta name="description" content="主要使用requests库和bs4库中的BeautifulSoup类 12345678910111213141516171819202122232425import requestsdemo = requests.get(&apos;http://python123.io/ws/demo.html&apos;)from bs4 import BeautifulSoupsoup = BeautifulSoup(demo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Some Notes">
-<meta property="og:url" content="http://yoursite.com/2017/11/10/Some Notes/index.html">
+<meta property="og:title" content="python网络爬虫笔记（1）">
+<meta property="og:url" content="http://yoursite.com/2018/01/04/Python/index.html">
 <meta property="og:site_name" content="iMAGe-Park">
-<meta property="og:description" content="hexo的更新口令 hexo g -d 在md中首行缩进：输入法切换全角模式，再按空格 输入标题的时候记得冒号后又一个空格">
+<meta property="og:description" content="主要使用requests库和bs4库中的BeautifulSoup类 12345678910111213141516171819202122232425import requestsdemo = requests.get(&apos;http://python123.io/ws/demo.html&apos;)from bs4 import BeautifulSoupsoup = BeautifulSoup(demo">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-12-23T12:38:41.801Z">
+<meta property="og:updated_time" content="2018-01-04T12:18:55.178Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Some Notes">
-<meta name="twitter:description" content="hexo的更新口令 hexo g -d 在md中首行缩进：输入法切换全角模式，再按空格 输入标题的时候记得冒号后又一个空格">
+<meta name="twitter:title" content="python网络爬虫笔记（1）">
+<meta name="twitter:description" content="主要使用requests库和bs4库中的BeautifulSoup类 12345678910111213141516171819202122232425import requestsdemo = requests.get(&apos;http://python123.io/ws/demo.html&apos;)from bs4 import BeautifulSoupsoup = BeautifulSoup(demo">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/10/Some Notes/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/04/Python/"/>
 
 
 
 
 
-  <title>Some Notes | iMAGe-Park</title>
+  <title>python网络爬虫笔记（1） | iMAGe-Park</title>
   
 
 
@@ -246,7 +246,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/10/Some Notes/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/04/Python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="莲子熊猫">
@@ -263,7 +263,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Some Notes</h1>
+          <h1 class="post-title" itemprop="name headline">python网络爬虫笔记（1）</h1>
         
 
         <div class="post-meta">
@@ -275,8 +275,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-10T00:00:00+08:00">
-                2017-11-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-04T00:00:00+08:00">
+                2018-01-04
               </time>
             
 
@@ -310,11 +310,11 @@
       
 
       
-        <ul>
-<li>hexo的更新口令 hexo g -d</li>
-<li>在md中首行缩进：输入法切换全角模式，再按空格</li>
-<li>输入标题的时候记得冒号后又一个空格</li>
-</ul>
+        <p>主要使用requests库和bs4库中的BeautifulSoup类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">demo = requests.get(<span class="string">'http://python123.io/ws/demo.html'</span>)</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">soup = BeautifulSoup(demo,<span class="string">'html.parser'</span>)</span><br><span class="line">print(soup.a)<span class="comment">#打印其中的a标签</span></span><br><span class="line"><span class="comment">#标签树下行遍历</span></span><br><span class="line"><span class="comment">#soup.a.contents  返回儿子一个列表</span></span><br><span class="line"><span class="comment">#soup.a.childdren 返回儿子迭代类型</span></span><br><span class="line"><span class="comment">#soup.a.descendants 返回子孙迭代类型</span></span><br><span class="line"><span class="keyword">for</span> child <span class="keyword">in</span> soup.body.children:</span><br><span class="line">  print(child)</span><br><span class="line"></span><br><span class="line"><span class="comment">#标签树的上行遍历   </span></span><br><span class="line">soup.a.parent 返回父亲</span><br><span class="line">soup.a.parents 返回迭代类型</span><br><span class="line"></span><br><span class="line"><span class="comment">#标签树平行遍历（必须在同一个父标签下）</span></span><br><span class="line">soup.a.next_sibling</span><br><span class="line">soup.a.previous_sibling</span><br><span class="line">soup.a.next_siblings 迭代类型</span><br><span class="line">soup.a.previous_silblings 迭代类型</span><br><span class="line"></span><br><span class="line"><span class="comment">#pretify()方法</span></span><br><span class="line">print(soup.pretify())</span><br><span class="line">print(soup.a.pretify())</span><br></pre></td></tr></table></figure>
+<p>XML</p>
+<p>JSON</p>
+<p>YAML </p>
 
       
     </div>
@@ -351,8 +351,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/04/interesting stuff/" rel="next" title="Some Interesting Stuff">
-                <i class="fa fa-chevron-left"></i> Some Interesting Stuff
+              <a href="/2017/12/24/17-12-24学习笔记/" rel="next" title="17-12-24学习笔记">
+                <i class="fa fa-chevron-left"></i> 17-12-24学习笔记
               </a>
             
           </div>
@@ -360,10 +360,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/10/Python Note/" rel="prev" title="Python Note">
-                Python Note <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
