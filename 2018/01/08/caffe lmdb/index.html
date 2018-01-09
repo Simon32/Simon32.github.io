@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Caffe," />
 
 
 
@@ -94,8 +94,9 @@
 
 
 <meta name="description" content="也是综合了很多网上的博客上的教程，但是也各有各的坑，写下此文作为记录参考链接：1.caffe下为图像加标签，转换为可执行文件.lmdb格式2.(原)caffe中通过图像生成lmdb格式的数据3.【caffe-windows】 caffe-master 之图片转换成lmdb or leveldb4.深度学习文章3：将自己的图像数据转换成caffe需要的db(leveldb/lmdb)文件5.Caff">
+<meta name="keywords" content="Caffe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Caffe中如何将图片转换为LMDB">
+<meta property="og:title" content="Caffe时间（1） 如何将图片转换为Caffe所需要的LMDB格式">
 <meta property="og:url" content="http://yoursite.com/2018/01/08/caffe lmdb/index.html">
 <meta property="og:site_name" content="iMAGe-Park">
 <meta property="og:description" content="也是综合了很多网上的博客上的教程，但是也各有各的坑，写下此文作为记录参考链接：1.caffe下为图像加标签，转换为可执行文件.lmdb格式2.(原)caffe中通过图像生成lmdb格式的数据3.【caffe-windows】 caffe-master 之图片转换成lmdb or leveldb4.深度学习文章3：将自己的图像数据转换成caffe需要的db(leveldb/lmdb)文件5.Caff">
@@ -110,9 +111,9 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/912e0dbdgy1fn97uxhd7uj21hc0u0div.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/912e0dbdgy1fn97vl5wpwj21hc0u0wol.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/912e0dbdgy1fn98aj2l85j23kw2oox6r.jpg">
-<meta property="og:updated_time" content="2018-01-08T15:52:57.563Z">
+<meta property="og:updated_time" content="2018-01-09T14:22:49.845Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Caffe中如何将图片转换为LMDB">
+<meta name="twitter:title" content="Caffe时间（1） 如何将图片转换为Caffe所需要的LMDB格式">
 <meta name="twitter:description" content="也是综合了很多网上的博客上的教程，但是也各有各的坑，写下此文作为记录参考链接：1.caffe下为图像加标签，转换为可执行文件.lmdb格式2.(原)caffe中通过图像生成lmdb格式的数据3.【caffe-windows】 caffe-master 之图片转换成lmdb or leveldb4.深度学习文章3：将自己的图像数据转换成caffe需要的db(leveldb/lmdb)文件5.Caff">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/912e0dbdgy1fn9f6t1ftwj22060jq0w2.jpg">
 
@@ -148,7 +149,7 @@
 
 
 
-  <title>Caffe中如何将图片转换为LMDB | iMAGe-Park</title>
+  <title>Caffe时间（1） 如何将图片转换为Caffe所需要的LMDB格式 | iMAGe-Park</title>
   
 
 
@@ -274,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Caffe中如何将图片转换为LMDB</h1>
+          <h1 class="post-title" itemprop="name headline">Caffe时间（1） 如何将图片转换为Caffe所需要的LMDB格式</h1>
         
 
         <div class="post-meta">
@@ -332,6 +333,8 @@
 <p><img src="http://ww1.sinaimg.cn/large/912e0dbdgy1fn97uxhd7uj21hc0u0div.jpg" alt=""></p>
 <p>步骤：<br>1.生成标签文件train.txt和val.txt</p>
 <p>下面是生成标签文件的python代码 CreateLabel.py，此文件放在上图image目录下运行</p>
+<p>注意图片的标签一定要从0开始！像0,1,2……这样切记！不然可能会出问题</p>
+<p>我这里需要做一个二分类，所以标签只是写了0和1两个类别</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">IsSubString</span><span class="params">(SubStrList,Str)</span>:</span>  </span><br><span class="line">    flag=<span class="keyword">True</span>  </span><br><span class="line">    <span class="keyword">for</span> substr <span class="keyword">in</span> SubStrList:  </span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span>(substr <span class="keyword">in</span> Str):  </span><br><span class="line">            flag=<span class="keyword">False</span>  </span><br><span class="line">      </span><br><span class="line">    <span class="keyword">return</span> flag  </span><br><span class="line">  </span><br><span class="line"><span class="comment">#扫面文件  </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GetFileList</span><span class="params">(FindPath,FlagStr=[])</span>:</span>  </span><br><span class="line">    FileList=[]  </span><br><span class="line">    FileNames=os.listdir(FindPath)  </span><br><span class="line">    <span class="keyword">if</span> len(FileNames)&gt;<span class="number">0</span>:  </span><br><span class="line">        <span class="keyword">for</span> fn <span class="keyword">in</span> FileNames:  </span><br><span class="line">            <span class="keyword">if</span> len(FlagStr)&gt;<span class="number">0</span>:  </span><br><span class="line">                <span class="keyword">if</span> IsSubString(FlagStr,fn):  </span><br><span class="line">                    fullfilename=os.path.join(FindPath,fn)  </span><br><span class="line">                    FileList.append(fullfilename)  </span><br><span class="line">            <span class="keyword">else</span>:  </span><br><span class="line">                fullfilename=os.path.join(FindPath,fn)  </span><br><span class="line">                FileList.append(fullfilename)  </span><br><span class="line">      </span><br><span class="line">    <span class="keyword">if</span> len(FileList)&gt;<span class="number">0</span>:  </span><br><span class="line">        FileList.sort()  </span><br><span class="line">          </span><br><span class="line">    <span class="keyword">return</span> FileList  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">train_txt=open(<span class="string">'train.txt'</span>,<span class="string">'w'</span>)  </span><br><span class="line"><span class="comment">#制作标签数据，如果是狗的，标签设置为0，如果是猫的标签为1  </span></span><br><span class="line">imgfile=GetFileList(<span class="string">'train/n01440764'</span>)<span class="comment">#将数据集放在与.py文件相同目录下  </span></span><br><span class="line"><span class="keyword">for</span> img <span class="keyword">in</span> imgfile:  </span><br><span class="line">    str1=img+<span class="string">' '</span>+<span class="string">'1'</span>+<span class="string">'\n'</span>        <span class="comment">#用空格代替转义字符 \t   </span></span><br><span class="line">    train_txt.writelines(str1)  </span><br><span class="line">      </span><br><span class="line">  </span><br><span class="line">imgfile=GetFileList(<span class="string">'train/n02091467'</span>)  </span><br><span class="line"><span class="keyword">for</span> img <span class="keyword">in</span> imgfile:  </span><br><span class="line">    str2=img+<span class="string">' '</span>+<span class="string">'0'</span>+<span class="string">'\n'</span>  </span><br><span class="line">    train_txt.writelines(str2)  </span><br><span class="line">train_txt.close()  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="comment">#测试集文件列表  </span></span><br><span class="line">test_txt=open(<span class="string">'val.txt'</span>,<span class="string">'w'</span>)  </span><br><span class="line"><span class="comment">#制作标签数据，如果是男的，标签设置为0，如果是女的标签为1  </span></span><br><span class="line">imgfile=GetFileList(<span class="string">'val/n01440764'</span>)<span class="comment">#将数据集放在与.py文件相同目录下  </span></span><br><span class="line"><span class="keyword">for</span> img <span class="keyword">in</span> imgfile:  </span><br><span class="line">    str3=img+<span class="string">' '</span>+<span class="string">'1'</span>+<span class="string">'\n'</span>  </span><br><span class="line">    test_txt.writelines(str3)  </span><br><span class="line">      </span><br><span class="line">  </span><br><span class="line">imgfile=GetFileList(<span class="string">'val/n02091467'</span>)  </span><br><span class="line"><span class="keyword">for</span> img <span class="keyword">in</span> imgfile:  </span><br><span class="line">    str4=img+<span class="string">' '</span>+<span class="string">'0'</span>+<span class="string">'\n'</span>  </span><br><span class="line">    test_txt.writelines(str4)  </span><br><span class="line">test_txt.close()  </span><br><span class="line">  </span><br><span class="line">print(<span class="string">"成功生成文件列表"</span>)</span><br></pre></td></tr></table></figure>
 <p>将生成的两个文件test.txt和val.txt放到上图Data_test文件夹中</p>
 <p>2.生成LMDB</p>
@@ -356,6 +359,27 @@
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ww1.sinaimg.cn/large/912e0dbdgy1fnarpbqe18j20w00w00x1.jpg" alt="莲子熊猫 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ww1.sinaimg.cn/large/912e0dbdgy1fnaroy3c8cj20u019iq8s.jpg" alt="莲子熊猫 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -368,6 +392,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Caffe/" rel="tag"># Caffe</a>
+          
+        </div>
       
 
       
@@ -387,6 +417,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/09/1.9杂/" rel="prev" title="2018.1.9杂">
+                2018.1.9杂 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -452,7 +486,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -460,6 +494,15 @@
 
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/tags.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
           
 
         </nav>

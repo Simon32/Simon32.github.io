@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Caffe," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="接着上一篇blog继续写，今天是使用数据来训练LeNet，此处是用来进行图像的二分类问题，但是因为LeNet本身结构上的一些问题(主要是用来识别手写数字，在Mnist上训练效果可以达到99%)，在进行了几轮实验后，发现最终的实验结果并不是非常理想，accuracy最高也才到85%，loss大概是在0.33左右，训练model重在调参，这是今天感受最深的一句话，我能说这大半天都在进行调参吗？ (/ω">
+<meta name="keywords" content="Caffe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Caffe时间（2） Caffe实践LeNet">
+<meta property="og:url" content="http://yoursite.com/2018/01/09/训练过程/index.html">
+<meta property="og:site_name" content="iMAGe-Park">
+<meta property="og:description" content="接着上一篇blog继续写，今天是使用数据来训练LeNet，此处是用来进行图像的二分类问题，但是因为LeNet本身结构上的一些问题(主要是用来识别手写数字，在Mnist上训练效果可以达到99%)，在进行了几轮实验后，发现最终的实验结果并不是非常理想，accuracy最高也才到85%，loss大概是在0.33左右，训练model重在调参，这是今天感受最深的一句话，我能说这大半天都在进行调参吗？ (/ω">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/7f31335fly1fnak56eo66j22060zudmq.jpg">
+<meta property="og:updated_time" content="2018-01-09T14:22:41.865Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Caffe时间（2） Caffe实践LeNet">
+<meta name="twitter:description" content="接着上一篇blog继续写，今天是使用数据来训练LeNet，此处是用来进行图像的二分类问题，但是因为LeNet本身结构上的一些问题(主要是用来识别手写数字，在Mnist上训练效果可以达到99%)，在进行了几轮实验后，发现最终的实验结果并不是非常理想，accuracy最高也才到85%，loss大概是在0.33左右，训练model重在调参，这是今天感受最深的一句话，我能说这大半天都在进行调参吗？ (/ω">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/7f31335fly1fnak56eo66j22060zudmq.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/09/训练过程/"/>
+
+
+
+
+
+  <title>Caffe时间（2） Caffe实践LeNet | iMAGe-Park</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iMAGe-Park</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">NEVER SETTLE!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/09/训练过程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="莲子熊猫">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iMAGe-Park">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Caffe时间（2） Caffe实践LeNet</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-09T00:00:00+08:00">
+                2018-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>接着上一篇blog继续写，今天是使用数据来训练LeNet，此处是用来进行图像的二分类问题，但是因为LeNet本身结构上的一些问题(主要是用来识别手写数字，在Mnist上训练效果可以达到99%)，在进行了几轮实验后，发现最终的实验结果并不是非常理想，accuracy最高也才到85%，loss大概是在0.33左右，训练model重在调参，这是今天感受最深的一句话，我能说这大半天都在进行调参吗？</p>
+<p>(<em>/ω＼</em>)</p>
+<p>虽然用的GPU比用CPU但是训练一遍也大概要20min（两块1080ti），但是实际训练中应该只有一块在跑（可能还是数据量小？相比于Mnist的数据集，GPU的色噪音小多了），现在正在一旁训练LeNet。</p>
+<p>回到调参的问题，昨天晚上因为是第一次训练没经验，有些参数也没太看懂，导致出了一些问题。先来看一下比较重要的几个文件<br>再来附上这张图（比昨天的增加和修改了一些）<br><img src="http://ww1.sinaimg.cn/large/7f31335fly1fnak56eo66j22060zudmq.jpg" alt=""></p>
+<ul>
+<li><p>定义网络结构的lenet_train_text.prototxt文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br></pre></td><td class="code"><pre><span class="line">name: <span class="string">"LeNet"</span></span><br><span class="line">layer &#123;</span><br><span class="line">  name: <span class="string">"mnist"</span></span><br><span class="line">  type: <span class="string">"Data"</span></span><br><span class="line">  top: <span class="string">"data"</span></span><br><span class="line">  top: <span class="string">"label"</span></span><br><span class="line">  include &#123;</span><br><span class="line">    phase: TRAIN</span><br><span class="line">  &#125;</span><br><span class="line">  transform_param &#123;</span><br><span class="line">    scale: <span class="number">0.00390625</span></span><br><span class="line">  &#125;</span><br><span class="line">  data_param &#123;</span><br><span class="line">    source: <span class="string">"/home/deep/caffe/examples/My_Files/Build_lmdb/train_lmdb"</span></span><br><span class="line">    batch_size: <span class="number">34</span>   //注意调节好此处和下面的batch_size的大小</span><br><span class="line">    backend: LMDB</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">layer &#123;</span><br><span class="line">  name: <span class="string">"mnist"</span></span><br><span class="line">  type: <span class="string">"Data"</span></span><br><span class="line">  top: <span class="string">"data"</span></span><br><span class="line">  top: <span class="string">"label"</span></span><br><span class="line">  include &#123;</span><br><span class="line">    phase: TEST</span><br><span class="line">  &#125;</span><br><span class="line">  transform_param &#123;</span><br><span class="line">    scale: <span class="number">0.00390625</span></span><br><span class="line">  &#125;</span><br><span class="line">  data_param &#123;</span><br><span class="line">    source: <span class="string">"/home/deep/caffe/examples/My_Files/Build_lmdb/val_lmdb"</span></span><br><span class="line">    batch_size: <span class="number">38</span></span><br><span class="line">    backend: LMDB</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">layer &#123;</span><br><span class="line">  name: <span class="string">"conv1"</span></span><br><span class="line">  type: <span class="string">"Convolution"</span></span><br><span class="line">  bottom: <span class="string">"data"</span></span><br><span class="line">  top: <span class="string">"conv1"</span></span><br><span class="line">  param &#123;</span><br><span class="line">    lr_mult: <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  param &#123;</span><br><span class="line">    lr_mult: <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">  convolution_param &#123;</span><br><span class="line">    num_output: <span class="number">20</span></span><br><span class="line">    kernel_size: <span class="number">5</span></span><br><span class="line">    stride: <span class="number">1</span></span><br><span class="line">    weight_filler &#123;</span><br><span class="line">      type: <span class="string">"xavier"</span></span><br><span class="line">    &#125;</span><br><span class="line">    bias_filler &#123;</span><br><span class="line">      type: <span class="string">"constant"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">layer &#123;</span><br><span class="line">  name: <span class="string">"pool1"</span></span><br><span class="line">  type: <span class="string">"Pooling"</span></span><br><span class="line">  bottom: <span class="string">"conv1"</span></span><br><span class="line">  top: <span class="string">"pool1"</span></span><br><span class="line">  pooling_param &#123;</span><br><span class="line">    pool: MAX</span><br><span class="line">    kernel_size: <span class="number">2</span></span><br><span class="line">    stride: <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">layer &#123;</span><br><span class="line">  name: <span class="string">"conv2"</span></span><br><span class="line">  type: <span class="string">"Convolution"</span></span><br><span class="line">  bottom: <span class="string">"pool1"</span></span><br><span class="line">  top: <span class="string">"conv2"</span></span><br><span class="line">  param &#123;</span><br><span class="line">    lr_mult: <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  param &#123;</span><br><span class="line">    lr_mult: <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">  convolution_param &#123;</span><br><span class="line">    num_output: <span class="number">50</span></span><br><span class="line">    kernel_size: <span class="number">5</span></span><br><span class="line">    stride: <span class="number">1</span></span><br><span class="line">    weight_filler &#123;</span><br><span class="line">      type: <span class="string">"xavier"</span></span><br><span class="line">    &#125;</span><br><span class="line">    bias_filler &#123;</span><br><span class="line">      type: <span class="string">"constant"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">layer &#123;</span><br><span class="line">  name: <span class="string">"pool2"</span></span><br><span class="line">  type: <span class="string">"Pooling"</span></span><br><span class="line">  bottom: <span class="string">"conv2"</span></span><br><span class="line">  top: <span class="string">"pool2"</span></span><br><span class="line">  pooling_param &#123;</span><br><span class="line">    pool: MAX</span><br><span class="line">    kernel_size: <span class="number">2</span></span><br><span class="line">    stride: <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">layer &#123;</span><br><span class="line">  name: <span class="string">"ip1"</span></span><br><span class="line">  type: <span class="string">"InnerProduct"</span></span><br><span class="line">  bottom: <span class="string">"pool2"</span></span><br><span class="line">  top: <span class="string">"ip1"</span></span><br><span class="line">  param &#123;</span><br><span class="line">    lr_mult: <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  param &#123;</span><br><span class="line">    lr_mult: <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">  inner_product_param &#123;</span><br><span class="line">    num_output: <span class="number">500</span></span><br><span class="line">    weight_filler &#123;</span><br><span class="line">      type: <span class="string">"xavier"</span></span><br><span class="line">    &#125;</span><br><span class="line">    bias_filler &#123;</span><br><span class="line">      type: <span class="string">"constant"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">layer &#123;</span><br><span class="line">  name: <span class="string">"relu1"</span></span><br><span class="line">  type: <span class="string">"ReLU"</span></span><br><span class="line">  bottom: <span class="string">"ip1"</span></span><br><span class="line">  top: <span class="string">"ip1"</span></span><br><span class="line">&#125;</span><br><span class="line">layer &#123;</span><br><span class="line">  name: <span class="string">"ip2"</span></span><br><span class="line">  type: <span class="string">"InnerProduct"</span></span><br><span class="line">  bottom: <span class="string">"ip1"</span></span><br><span class="line">  top: <span class="string">"ip2"</span></span><br><span class="line">  param &#123;</span><br><span class="line">    lr_mult: <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  param &#123;</span><br><span class="line">    lr_mult: <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">  inner_product_param &#123;</span><br><span class="line">    num_output: <span class="number">2</span>         //注意根据自己的需要进行改变，这里是二分类问题</span><br><span class="line">    weight_filler &#123;</span><br><span class="line">      type: <span class="string">"xavier"</span></span><br><span class="line">    &#125;</span><br><span class="line">    bias_filler &#123;</span><br><span class="line">      type: <span class="string">"constant"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">layer &#123;</span><br><span class="line">  name: <span class="string">"accuracy"</span></span><br><span class="line">  type: <span class="string">"Accuracy"</span></span><br><span class="line">  bottom: <span class="string">"ip2"</span></span><br><span class="line">  bottom: <span class="string">"label"</span></span><br><span class="line">  top: <span class="string">"accuracy"</span></span><br><span class="line">  include &#123;</span><br><span class="line">    phase: TEST</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">layer &#123;</span><br><span class="line">  name: <span class="string">"loss"</span></span><br><span class="line">  type: <span class="string">"SoftmaxWithLoss"</span></span><br><span class="line">  bottom: <span class="string">"ip2"</span></span><br><span class="line">  bottom: <span class="string">"label"</span></span><br><span class="line">  top: <span class="string">"loss"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意调节batch_size大小，第一次直接使用训练Mnist的那套参数导致，一直不收敛，且loss一直是87.3365，改变之后loss终于降低</p>
+</li>
+<li><p>定义训练参数的lenet_solver.prototxt</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#网络原型文件的位置</span></span><br><span class="line">net: <span class="string">"/home/deep/caffe/examples/My_Files/lenet_train_test.prototxt"</span></span><br><span class="line"><span class="comment">#测试迭代的次数，这里需要test_iter和上面TEST下面的batch_size的乘积要&gt;=测试集的数据量</span></span><br><span class="line">test_iter: <span class="number">50</span></span><br><span class="line"><span class="comment">#由于是边进行训练边进行测试，这里就是指每训练500次要进行一下测试</span></span><br><span class="line">test_interval: <span class="number">500</span></span><br><span class="line"><span class="comment">#基础的学习率，学习率请看下方引用1部分；下面两个一般不用改</span></span><br><span class="line">base_lr: <span class="number">0.0001</span></span><br><span class="line">momentum: <span class="number">0.9</span></span><br><span class="line">weight_decay: <span class="number">0.0005</span></span><br><span class="line"><span class="comment">#这里也没改过</span></span><br><span class="line">lr_policy: <span class="string">"inv"</span></span><br><span class="line">gamma: <span class="number">0.0001</span></span><br><span class="line">power: <span class="number">0.75</span></span><br><span class="line"><span class="comment"># Display every 100 iterations</span></span><br><span class="line">display: <span class="number">100</span></span><br><span class="line"><span class="comment">#这个就是指最大的迭代次数</span></span><br><span class="line">max_iter: <span class="number">10000</span></span><br><span class="line"><span class="comment">#每5000次保存一次快照，方便之后对模型进行后续的训练</span></span><br><span class="line">snapshot: <span class="number">5000</span></span><br><span class="line">snapshot_prefix: <span class="string">"/home/deep/caffe/examples/My_Files/lenet"</span></span><br><span class="line"><span class="comment">#训练模式，这里选择的是GPU模式</span></span><br><span class="line">solver_mode: GPU</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>引用1：</p>
+<p>运用梯度下降算法进行优化时，权重的更新规则中，在梯度项前会乘以一个系数，这个系数就叫学习速率η。下面讨论在训练时选取η的策略。</p>
+<ul>
+<li>固定的学习速率。如果学习速率太小，则会使收敛过慢，如果学习速率太大，则会导致代价函数振荡，如下图所示</li>
+</ul>
+</blockquote>
+</li>
+<li><p>执行训练的脚本文件train.sh</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env sh</span></span><br><span class="line">set -e</span><br><span class="line"></span><br><span class="line">/home/deep/caffe/build/tools/caffe train \</span><br><span class="line">--solver=/home/deep/caffe/examples/My_Files/lenet_solver.prototxt $@</span><br></pre></td></tr></table></figure>
+<p>这个直接执行sudo bash train.sh就开始训练了，打印过程就不写了</p>
+<p>| Type  | test_iter | test_interval | base_lr | train_size | test_size | accuracy |   loss   |<br>| :—: | :——-: | :———–: | :—–: | :——–: | :——-: | :——: | :——: |<br>| LeNet |    100    |      500      | 0.0001  |    136     |    24     | 0.85875  | 0.338477 |<br>| LeNet |    50     |      500      | 0.0001  |    136     |    40     | 0.860526 | 0.337723 |<br>| LeNet |    50     |      500      | 0.0001  |     34     |    38     | 0.861053 | 0.321303 |</p>
+<p>几次训练的参数和最终的结果见上表↑</p>
+<p>​</p>
+<p>这里可以看一篇文章↓</p>
+<p><a href="http://blog.csdn.net/dongfang1984/article/details/53259297" target="_blank" rel="noopener"> caffe 训练自己的数据集—调试技巧篇</a></p>
+<p>​</p>
+<p>训练完成之后可以看到生成的多个成对出现的 .caffemodel 和 .solverstate文件，一个是模型文件，一个是中间状态文件（生成多少个取决于你自己设定的snapshot）。当训练过程中断，你想继续运行数据学习，此时只需要调用.solverstate文件即可。</p>
+<p>使用方式代码，我使用的是.sh直接运行，配置和官方给的文件train_caffenet.sh差不多，稍微添加点内容就可以了,按自己的情况进行对应修改。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./build/tools/caffe train \  </span><br><span class="line">--solver=examples/test/solver.prototxt \</span><br><span class="line">--snapshot=examples/test/test_100000.solverstate</span><br></pre></td></tr></table></figure>
+<p>参考下面的文章↓</p>
+<p><a href="http://blog.csdn.net/wang4959520/article/details/51831637" target="_blank" rel="noopener">caffe的solverstate的使用</a></p>
+</li>
+</ul>
+<p>之后改用AlecNet进行了5W次迭代准确率可以达到95%左右，通过输出结果可以看出1.5W次到5W次迭代之间accuracy大概就是在94%~96%这个范围之间</p>
+<p>这个马一些以后用↓</p>
+<p><a href="http://blog.csdn.net/alps1992/article/details/67639880#solverstate使用" target="_blank" rel="noopener">机器学习 - Solverstate 使用和CaffeMode 可视化</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ww1.sinaimg.cn/large/912e0dbdgy1fnarpbqe18j20w00w00x1.jpg" alt="莲子熊猫 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ww1.sinaimg.cn/large/912e0dbdgy1fnaroy3c8cj20u019iq8s.jpg" alt="莲子熊猫 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Caffe/" rel="tag"># Caffe</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/09/image-net/" rel="next" title="ImageNet下载地址">
+                <i class="fa fa-chevron-left"></i> ImageNet下载地址
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjY0NS85MjA2"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="莲子熊猫" />
+          <p class="site-author-name" itemprop="name">莲子熊猫</p>
+           
+              <p class="site-description motion-element" itemprop="description">Do What You Want</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/tags.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/stx3257" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/suntx325/" target="_blank" title="Instagram">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  Instagram
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://suntx32.lofter.com/" target="_blank" title="LOFTER">
+                  
+                    <i class="fa fa-fw fa-camera-retro"></i>
+                  
+                  LOFTER
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://tuchong.com/1102598/" target="_blank" title="图虫">
+                  
+                    <i class="fa fa-fw fa-camera"></i>
+                  
+                  图虫
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Simon32" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iMAGe-Park. All Rights Reserved. </span>
+</div>
+
+
+<div class="powered-by">
+  Powered by Hexo
+</div>
+
+<div class="theme-info">
+  Owned by Lotus Panda  
+</div>
+
+<div>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.1"></script>
+
+
+  
+
+</body>
+</html>

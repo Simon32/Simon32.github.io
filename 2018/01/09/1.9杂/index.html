@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="杂，日记，Hexo," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="最详细的Hexo Next主题配置教程   处理器A级漏洞Meltdown(熔毁)和Spectre(幽灵)分析报告  转载自→处理器A级漏洞Meltdown(熔毁)和Spectre(幽灵)分析报告 安天安全研究与应急处理中心(Antiy CERT) 安天微电子与嵌入式安全研发中心 报告初稿完成时间：2018年1月4日 23时首次发布时间：2018年1月4日 23时本版更新时间：2018年1月5日">
+<meta name="keywords" content="杂，日记，Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018.1.9杂">
+<meta property="og:url" content="http://yoursite.com/2018/01/09/1.9杂/index.html">
+<meta property="og:site_name" content="iMAGe-Park">
+<meta property="og:description" content="最详细的Hexo Next主题配置教程   处理器A级漏洞Meltdown(熔毁)和Spectre(幽灵)分析报告  转载自→处理器A级漏洞Meltdown(熔毁)和Spectre(幽灵)分析报告 安天安全研究与应急处理中心(Antiy CERT) 安天微电子与嵌入式安全研发中心 报告初稿完成时间：2018年1月4日 23时首次发布时间：2018年1月4日 23时本版更新时间：2018年1月5日">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://www.antiy.com/response/Meltdown/img/001.JPG">
+<meta property="og:image" content="http://www.antiy.com/response/Meltdown/img/002.JPG">
+<meta property="og:image" content="http://www.antiy.com/response/Meltdown/img/003.JPG">
+<meta property="og:image" content="http://www.antiy.com/response/Meltdown/img/image004.png">
+<meta property="og:image" content="http://www.antiy.com/response/Meltdown/img/image005.png">
+<meta property="og:image" content="http://www.antiy.com/response/Meltdown/img/image006.png">
+<meta property="og:image" content="http://www.antiy.com/response/Meltdown/img/image007.png">
+<meta property="og:image" content="http://www.antiy.com/response/Meltdown/img/image008.png">
+<meta property="og:image" content="http://www.antiy.com/response/Meltdown/img/image009.png">
+<meta property="og:image" content="http://www.antiy.com/response/Meltdown/img/image010.png">
+<meta property="og:image" content="http://www.antiy.com/response/Meltdown/img/image011.png">
+<meta property="og:updated_time" content="2018-01-09T14:22:57.925Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018.1.9杂">
+<meta name="twitter:description" content="最详细的Hexo Next主题配置教程   处理器A级漏洞Meltdown(熔毁)和Spectre(幽灵)分析报告  转载自→处理器A级漏洞Meltdown(熔毁)和Spectre(幽灵)分析报告 安天安全研究与应急处理中心(Antiy CERT) 安天微电子与嵌入式安全研发中心 报告初稿完成时间：2018年1月4日 23时首次发布时间：2018年1月4日 23时本版更新时间：2018年1月5日">
+<meta name="twitter:image" content="http://www.antiy.com/response/Meltdown/img/001.JPG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/09/1.9杂/"/>
+
+
+
+
+
+  <title>2018.1.9杂 | iMAGe-Park</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iMAGe-Park</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">NEVER SETTLE!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/09/1.9杂/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="莲子熊猫">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iMAGe-Park">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2018.1.9杂</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-09T00:00:00+08:00">
+                2018-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li><a href="http://blog.csdn.net/lijiajun95/article/details/53862528#t7" target="_blank" rel="noopener">最详细的Hexo Next主题配置教程</a></li>
+</ul>
+<ul>
+<li>处理器A级漏洞Meltdown(熔毁)和Spectre(幽灵)分析报告</li>
+</ul>
+<p>转载自→<a href="http://www.antiy.com/response/Meltdown.html" target="_blank" rel="noopener">处理器A级漏洞Meltdown(熔毁)和Spectre(幽灵)分析报告</a></p>
+<p>安天安全研究与应急处理中心(Antiy CERT)</p>
+<p>安天微电子与嵌入式安全研发中心</p>
+<p>报告初稿完成时间：2018年1月4日 23时<br>首次发布时间：2018年1月4日 23时<br>本版更新时间：2018年1月5日 08时50分<br><a href="http://www.antiy.com/response/Meltdown/Meltdown.pdf" target="_blank" rel="noopener">PDF报告下载</a></p>
+<hr>
+<h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1          概述"></a>1          概述</h1><p>安天应急处理中心在2018年1月4日，针对Google公司的Project Zero等安全团队披露出的<strong>英特尔等处理器芯片存在非常严重的安全漏洞</strong>，发布了<strong>A**</strong>级漏洞风险通告<strong>，并提醒</strong>该漏洞演化为针对云和信息基础设施的<strong><strong>A</strong></strong>级网络安全灾难<strong>。相关漏洞</strong>利用了芯片硬件层面执行加速机制的实现缺陷实现侧信道攻击，可以间接通过<strong><strong>CPU</strong></strong>缓存读取系统内存数据**。漏洞Meltdown（熔毁）因“融化”了硬件的安全边界而得名，漏洞Spectre（幽灵）因其手段的隐蔽性而得名。</p>
+<p><strong>该漏洞是一个足以动摇全球云计算基础设施根基的漏洞</strong>，其意味着任何虚拟机的租户或者入侵了成功一个虚拟机的攻击者，都可以通过相关攻击机制去获取完整的物理机的CPU缓存数据，而这种攻击对现有虚拟化节点的防御机制是无法感知的。同时由于<strong>该漏洞的机理，导致其存在各种操作系统平台的攻击方式</strong>，<strong>因此尽管这一漏洞本身只能读取数据，不能修改数据，但由于其获取的数据中有可能包括口令、证书和其他关键数据，包括能够完整**</strong>Dump<strong>**内存镜像，因此这个漏洞比一般性的虚拟机逃逸对云的危害更大</strong>。尽管当前全球主要云服务商均在积极应对这一漏洞的影响，但鉴于这些云服务体系的庞大而复杂，以及大面积补丁本身所面临的复杂度和风险，漏洞利用POC已经发布并验证成功，因此<strong>这次漏洞修补已经成为一场时间赛跑</strong>。在这个过程中，<strong>攻击者所获取到的数据，将会沉淀出对于关键数据和隐私泄露、登陆凭证被窃取导致连锁攻击等次生灾害</strong>。</p>
+<p>鉴于大量政企机构和行业进行了私有云的建设，而私有云的安全防御和补丁升级可能更弱。因此后续<strong>需要深度注意利用该漏洞在私有云中进行的攻击</strong>。</p>
+<p>同时，<strong>该漏洞对于攻击桌面节点同样有巨大的攻击力</strong>，<strong>其大大提升了以浏览器等为攻击入口的攻击成功率</strong>。包括使传统的使用非超级用户来降低网络风险的安全策略失效。</p>
+<p>当前已经公布的漏洞POC对Intel系列CPU有效，但鉴于相关执行加速机制是现代处理器的通用技术，因此所有处理器均需要分析相关风险。</p>
+<p>安天在第一时间向管理部门提交威胁通报，并根据管理部门的要求正在进一步做深度的分析验证和应对工作。并在1月4日发出了公开漏洞通告。鉴于相关漏洞机理较为复杂，涉及到体系结构、操作系统，特别是CPU的核心运行机制，为使主管部门和用户深入了解漏洞细节，做好防护，安天组织内部公益翻译和技术团队对披露这两个漏洞的长篇关键论文文献《Meltdown》和《Spectre》进行了翻译，并在1月4日发布了《Meltdown》的初稿，《Spectre》也在紧张翻译工作中。</p>
+<h1 id="2-漏洞介绍"><a href="#2-漏洞介绍" class="headerlink" title="2          漏洞介绍"></a>2          漏洞介绍</h1><p>针对英特尔处理器涉及到两种攻击方法，分别为Meltdown和Spectre，Spectre涉及CVE编号CVE-2017-5753和CVE-2017-5715，而Meltdown涉及CVE编号CVE-2017-5754。</p>
+<p>Meltdown破坏了位于用户和操作系统之间的基本隔离，此攻击允许程序访问内存，因此其他程序以及操作系统的敏感信息会被窃取。这个漏洞“熔化”了由硬件来实现的安全边界。允许低权限用户级别的应用程序“越界”访问系统级的内存，从而造成数据泄露。</p>
+<p>Spectre则是破坏了不同应用程序之间的隔离。问题的根源在于推测执行（speculative execution），这是一种优化技术，处理器会推测在未来有用的数据并执行计算。这种技术的目的在于提前准备好计算结果，当这些数据被需要时可立即使用。在此过程中，英特尔没有很好地将低权限的应用程序与访问内核内存分开，这意味着攻击者可以使用恶意应用程序来获取应该被隔离的私有数据。</p>
+<h1 id="3-影响范围"><a href="#3-影响范围" class="headerlink" title="3          影响范围"></a>3          影响范围</h1><p>本次安全事件影响到的范围很广，包括：</p>
+<p>处理器芯片：英特尔为主、ARM、AMD，对其他处理器同样可能存在相关风险。</p>
+<p>操作系统：Windows、Linux、macOS、Android</p>
+<p>云服务提供商：亚马逊、微软、谷歌、腾讯云、阿里云等</p>
+<p>各种私有云基础设施。</p>
+<p>桌面用户可能遭遇到结合该机理组合攻击。</p>
+<h1 id="4-漏洞分析"><a href="#4-漏洞分析" class="headerlink" title="4          漏洞分析"></a>4          漏洞分析</h1><h2 id="4-1-CPU缓存验证缺陷"><a href="#4-1-CPU缓存验证缺陷" class="headerlink" title="4.1         CPU缓存验证缺陷"></a>4.1         CPU缓存验证缺陷</h2><p>分支预测 [6] 和乱序执行 [7] ，是一种CPU优化技术，CPU会执行一些可能在将来会执行的任务。当分支指令发出之后，无相关优化技术的处理器，在未收到正确的反馈信息之前，是不会做任何处理；而具有优化技术能力的新型处理器，可以预测即将执行的指令，会预先处理一些指令所需的数据，例如将下一条指令所需要访问的内存提前加载到CPU缓存中，这就避免了执行具体指令时再去读内存，从而加快了CPU的执行速度，具体流程如下所示：</p>
+<p><img src="http://www.antiy.com/response/Meltdown/img/001.JPG" alt="img"></p>
+<p>图 1 CPU 优化执行</p>
+<p>指令3如果出现问题（如指令3是一个除0或者是一个非法的操作），会触发CPU的异常处理，具体情况如下</p>
+<p><img src="http://www.antiy.com/response/Meltdown/img/002.JPG" alt="img"></p>
+<p>图 2 CPU异常指令执行</p>
+<p>对于具有预测执行能力的新型处理器，在实际CPU执行过程中，指令4所需的内存加载环节不依赖于指令3是否能够正常执行，而且从内存到缓存加载这个环节不会验证访问的内存是否合法有效。即使指令3出现异常，指令4无法执行，但指令4所需的内存数据已加载到CPU缓存中，这一结果导致指令4即使加载的是无权限访问的内存数据，该内存数据也会加载到CPU缓存中，因为CPU是在缓存到寄存器这个环节才去检测地址是否合法，而CPU分支预测仅仅是完成内存到CPU缓存的加载，实际指令4并没有被真正的执行，所以他的非法访问是不会触发异常的。</p>
+<p><img src="http://www.antiy.com/response/Meltdown/img/003.JPG" alt="img"></p>
+<p>图 3 CPU数据访问权限和地址合法性检查</p>
+<p>如上图所示CPU缓存的这个过程对于用户是不可访问的，只有将具体的数据放到CPU的寄存器中用户才可操作，同时用户态程序也没有权限访问内核内存中的数据，因此CPU采用这种逻辑是没有问题的，但是如果有方法可以让我们得到CPU缓存中的数据，那么这种逻辑就存在缺陷。</p>
+<h2 id="4-2-边信道攻击缓存"><a href="#4-2-边信道攻击缓存" class="headerlink" title="4.2         边信道攻击缓存"></a>4.2         边信道攻击缓存</h2><p>CPU缓存通常在较小和较快的内部存储中缓存常用数据，从而隐藏慢速内存访问的延迟，缓存侧信道攻击正是利用CPU缓存与系统内存的读取的时间差异，从而变相猜测出CPU缓存中的数据，结合前边的缓存缺陷部分内容，产生如下的结果：</p>
+<p><img src="http://www.antiy.com/response/Meltdown/img/image004.png" alt="img"></p>
+<p>图 4 漏洞原理图</p>
+<p><em>注：简单来说，就是CPU<strong>缓存中的数据，在用户态和内核态都是无法正常访问的，除非当CPU</strong>缓存中的数据保存到寄存器中时，会被正常的读取；除此之外，是可以通过边信道的方式读取CPU**的缓存的。</em></p>
+<p>基于如上介绍的漏洞原理信息，通过CPU缓存验证缺陷，并利用边信道攻击技术可猜测CPU缓存中的数据，继而访问主机的完整内存数据，造成用户敏感信息泄露。</p>
+<h2 id="4-3-漏洞验证"><a href="#4-3-漏洞验证" class="headerlink" title="4.3         漏洞验证"></a>4.3         漏洞验证</h2><p>根据《Spectre Attacks: Exploiting Speculative Execution∗》报告中包含的PoC代码，编译后生成可执行文件，在使用Intel处理器的Windows 7 64位操作系统实验环境下进行测试。</p>
+<p>具体验证细节如下：</p>
+<p>l  在内存中申请一段空间，写入如下字符串：</p>
+<p><img src="http://www.antiy.com/response/Meltdown/img/image005.png" alt="img"></p>
+<p>l  利用这个机制获取数据</p>
+<p><img src="http://www.antiy.com/response/Meltdown/img/image006.png" alt="img"></p>
+<p>图 5 获取内存中的数据</p>
+<p>l   获取系统ntdll.dll导出函数内存空间数据，下图为ntdll.dll的导出函数NtQuerySystemInformation的地址空间数据。</p>
+<p><img src="http://www.antiy.com/response/Meltdown/img/image007.png" alt="img"></p>
+<p>图 6 系统ntdll.dll的导出函数NtQuerySystemInformation的地址空间数据</p>
+<p>l   通过如上方法获取该地址空间数据：</p>
+<p><img src="http://www.antiy.com/response/Meltdown/img/image008.png" alt="img"></p>
+<p>图 7 获取该地址空间数据</p>
+<p>通过实验数据证明，该漏洞确实存在，且可被用于获取当前进程内存数据。</p>
+<h1 id="5-检测与防御方法"><a href="#5-检测与防御方法" class="headerlink" title="5          检测与防御方法"></a>5          检测与防御方法</h1><h2 id="5-1-漏洞检测方法"><a href="#5-1-漏洞检测方法" class="headerlink" title="5.1         漏洞检测方法"></a>5.1         漏洞检测方法</h2><p>Windows用户，通过使用微软公司发布的检测PowerShell脚本，能够判断Windows系统是否受漏洞影响。</p>
+<p>首先，需要安装相应的PowerShell模块，对应命令：PS&gt; Install-Module SpeculationControl [5] </p>
+<p>其次，需要调用相应脚本，对应命令：PS&gt; Get-SpeculationControlSettings [5]</p>
+<p>其中，开启的保护会显示为True，未开启的保护则会显示为False，如下图所示：</p>
+<p><img src="http://www.antiy.com/response/Meltdown/img/image009.png" alt="img"></p>
+<p>图 8 微软漏洞检测工具运行情况</p>
+<h2 id="5-2-载荷应对"><a href="#5-2-载荷应对" class="headerlink" title="5.2         载荷应对"></a>5.2         载荷应对</h2><p>安天升级了AVL SDK威胁检测引擎，支撑安天自身产品和使用安天引擎用户对相关POC的检测能力。</p>
+<p>安天产品IEP升级了主防机制，对相关POC进行拦截。</p>
+<p>安天智甲终端防御系统可以对英特尔Spectre(幽灵)的POC进行检测，无论是Windows系统还是国产中标麒麟系统。</p>
+<p><img src="http://www.antiy.com/response/Meltdown/img/image010.png" alt="img"></p>
+<p>图 9 安天智甲终端防御系统针对利用处理器芯片漏洞在Windows平台系统均可有效防御</p>
+<p><img src="http://www.antiy.com/response/Meltdown/img/image011.png" alt="img"></p>
+<p>图 10 安天智甲终端防御系统针对利用处理器芯片漏洞在 Linux/国产操作系统均可有效防御</p>
+<h1 id="6-应对建议"><a href="#6-应对建议" class="headerlink" title="6          应对建议"></a>6          应对建议</h1><p>了解相关漏洞的权威文献是阅读论文《Meltdown》和《Spectre Attacks: Exploiting Speculative Execution∗》，安天已经在创意安天论坛公益翻译提供了对Meltdown的中文译本。</p>
+<p>地址：</p>
+<p><a href="http://bbs.antiy.cn/forum.php?mod=viewthread&amp;tid=77670&amp;extra=page%3D1" target="_blank" rel="noopener">http://bbs.antiy.cn/forum.php?mod=viewthread&amp;tid=77670&amp;extra=page%3D1</a></p>
+<p><a href="https://spectreattack.com/spectre.pdf" target="_blank" rel="noopener">https://spectreattack.com/spectre.pdf</a></p>
+<p>对本漏洞的有效应对核心是大规模的有效的补丁工作，包括提供热补丁。</p>
+<p>鉴于该漏洞可以获取完整的内存内容，所以建议相关云设施在完成补丁修复后，应提醒用户修改登陆口令并更新证书。</p>
+<p>目前Linux内核开发人员已经发布了针对Meltdown攻击方式的补丁，详情见：</p>
+<p><a href="https://lwn.net/Articles/738975/" target="_blank" rel="noopener">https://lwn.net/Articles/738975/</a></p>
+<p>Google部分产品已经针对这些攻击方式做出了修补，但是在部分情况下还需要用户采取额外的步骤确保产品受保护，针对安卓也将在1月5日推出补丁更新以限制对ARM处理器的所有已知变种攻击。详情见：</p>
+<p><a href="https://support.google.com/faqs/answer/7622138" target="_blank" rel="noopener">https://support.google.com/faqs/answer/7622138</a></p>
+<p>微软发布了几个更新来缓解这些漏洞，建议用户在安装操作系统或固件更新之前，请确认防病毒应用程序对其兼容，并且建议用户应用所有可用的Windows操作系统更新，包括2018年1月的Windows安全更新。详情见：</p>
+<p><a href="https://support.microsoft.com/en-us/help/4073119/windows-client-guidance-for-it-pros-to-protect-against-speculative-exe" target="_blank" rel="noopener">https://support.microsoft.com/en-us/help/4073119/windows-client-guidance-for-it-pros-to-protect-against-speculative-exe</a></p>
+<p>其他厂商也将要或已部分推出针对这些攻击方式的补丁，英特尔也提出正在与包括AMD、ARM以及各大操作系统厂商进行合作，以制定行业规范方法，及时、建设性的解决这个安全问题。</p>
+<p>目前部分厂商已针对此漏洞做出反馈：</p>
+<p>VMware：</p>
+<p><a href="https://www.vmware.com/us/security/advisories/VMSA-2018-0002.html" target="_blank" rel="noopener">https://www.vmware.com/us/security/advisories/VMSA-2018-0002.html</a></p>
+<p>AMD：</p>
+<p><a href="https://www.amd.com/en/corporate/speculative-execution" target="_blank" rel="noopener">https://www.amd.com/en/corporate/speculative-execution</a></p>
+<p>Red Hat：</p>
+<p><a href="https://access.redhat.com/security/vulnerabilities/speculativeexecution" target="_blank" rel="noopener">https://access.redhat.com/security/vulnerabilities/speculativeexecution</a></p>
+<p>Nvidia：</p>
+<p><a href="https://forums.geforce.com/default/topic/1033210/nvidias-response-to-speculative-side-channels-cve-2017-5753-cve-2017-5715-and-cve-2017-5754/" target="_blank" rel="noopener">https://forums.geforce.com/default/topic/1033210/nvidias-response-to-speculative-side-channels-cve-2017-5753-cve-2017-5715-and-cve-2017-5754/</a></p>
+<p>Xen：</p>
+<p><a href="https://xenbits.xen.org/xsa/advisory-254.html" target="_blank" rel="noopener">https://xenbits.xen.org/xsa/advisory-254.html</a></p>
+<p>ARM：</p>
+<p><a href="https://developer.arm.com/support/security-update" target="_blank" rel="noopener">https://developer.arm.com/support/security-update</a></p>
+<p>Amazon：</p>
+<p><a href="https://aws.amazon.com/de/security/security-bulletins/AWS-2018-013/" target="_blank" rel="noopener">https://aws.amazon.com/de/security/security-bulletins/AWS-2018-013/</a></p>
+<p>Mozilla</p>
+<p><a href="https://blog.mozilla.org/security/2018/01/03/mitigations-landing-new-class-timing-attack/" target="_blank" rel="noopener">https://blog.mozilla.org/security/2018/01/03/mitigations-landing-new-class-timing-attack/</a></p>
+<h1 id="附录一：参考资料"><a href="#附录一：参考资料" class="headerlink" title="附录一：参考资料"></a>附录一：参考资料</h1><p>[1]       《Kernel-memory-leaking Intel processor design flaw forces Linux, Windows redesign》</p>
+<p><a href="https://www.theregister.co.uk/2018/01/02/intel_cpu_design_flaw/" target="_blank" rel="noopener">https://www.theregister.co.uk/2018/01/02/intel_cpu_design_flaw/</a></p>
+<p>[2]        《Google: Almost All CPUs Since 1995 Vulnerable To “Meltdown” And “Spectre” Flaws》</p>
+<p><a href="https://www.bleepingcomputer.com/news/security/google-almost-all-cpus-since-1995-vulnerable-to-meltdown-and-spectre-flaws/" target="_blank" rel="noopener">https://www.bleepingcomputer.com/news/security/google-almost-all-cpus-since-1995-vulnerable-to-meltdown-and-spectre-flaws/</a></p>
+<p>[3]        《Meltdown and Spectre》</p>
+<p><a href="https://spectreattack.com/" target="_blank" rel="noopener">https://spectreattack.com/</a></p>
+<p>[4]        GitHub上用户ID为turbo提供的PoC代码下载地址</p>
+<p><a href="https://github.com/turbo/KPTI-PoC-Collection" target="_blank" rel="noopener">https://github.com/turbo/KPTI-PoC-Collection</a></p>
+<p>[5]        微软提供的检测方法</p>
+<p><a href="https://support.microsoft.com/en-us/help/4073119/windows-client-guidance-for-it-pros-to-protect-against-speculative-exe" target="_blank" rel="noopener">https://support.microsoft.com/en-us/help/4073119/windows-client-guidance-for-it-pros-to-protect-against-speculative-exe</a></p>
+<p>[6]      分支预测</p>
+<p><a href="https://baike.baidu.com/item/%E5%88%86%E6%94%AF%E9%A2%84%E6%B5%8B/9252782?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/%E5%88%86%E6%94%AF%E9%A2%84%E6%B5%8B/9252782?fr=aladdin</a></p>
+<p>[7]      乱序执行</p>
+<p><a href="https://baike.baidu.com/item/%E4%B9%B1%E5%BA%8F%E6%89%A7%E8%A1%8C/4944129" target="_blank" rel="noopener">https://baike.baidu.com/item/%E4%B9%B1%E5%BA%8F%E6%89%A7%E8%A1%8C/4944129</a></p>
+<h1 id="附录二：关于安天"><a href="#附录二：关于安天" class="headerlink" title="附录二：关于安天"></a>附录二：关于安天</h1><p>安天是专注于威胁检测防御技术的领导厂商。安天以提升用户应对网络空间威胁的核心能力、改善用户对威胁的认知为企业使命，依托自主先进的威胁检测引擎等系列核心技术和专家团队，为用户提供端点防护、流量监测、深度分析、威胁情报和态势感知等相关产品、解决方案与服务。</p>
+<p>安天的监控预警能力覆盖全国、产品与服务辐射多个国家。安天将大数据分析、安全可视化等方面的技术与产品体系有效结合，以海量样本自动化分析平台延展分析师团队作业能力、缩短产品响应周期。安天结合多年积累的海量安全威胁知识库，综合应用大数据分析、安全可视化等方面经验，推出了可抵御各类已知和未知威胁的多样化解决方案。</p>
+<p>全球超过一百家以上的著名安全厂商、IT厂商选择安天作为检测能力合作伙伴，安天的威胁检测引擎目前已为全球近十万台网络设备和网络安全设备、超过八亿部移动终端设备提供安全防护，其中安天移动检测引擎是全球首个获得AV-TEST年度奖项的中国产品，并在国际权威认证机构AV-C的2015年度移动安全产品测评中，成为全球唯一两次检出率均为100%的产品。</p>
+<p>安天技术实力得到行业管理机构、客户和伙伴的认可，安天已连续五届蝉联国家级网络安全应急服务支撑单位资质，亦是中国国家信息安全漏洞库六家首批一级支撑单位之一。</p>
+<p>安天是中国应急响应体系中重要的企业节点，在红色代码II、口令蠕虫、震网、破壳、沙虫、方程式、白象、魔窟等重大安全事件中，安天提供了先发预警、深度分析或系统的解决方案。</p>
+<table>
+<thead>
+<tr>
+<th><em>安天实验室更多信息请访问：</em></th>
+<th><a href="http://www.antiy.com/" target="_blank" rel="noopener"><em>http://www.antiy.com</em></a><em>（中文）</em><a href="http://www.antiy.net/" target="_blank" rel="noopener"><em>http://www.antiy.net</em></a><em>（英文）</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>安天企业安全公司更多信息请访问：</em></td>
+<td><a href="http://www.antiy.cn/" target="_blank" rel="noopener"><em>http://www.antiy.cn</em></a>**</td>
+</tr>
+<tr>
+<td><em>安天移动安全公司（AVL TEAM**）更多信息请访问：</em></td>
+<td><a href="http://www.avlsec.com/" target="_blank" rel="noopener"><em>http://www.avlsec.com</em></a>**</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ww1.sinaimg.cn/large/912e0dbdgy1fnarpbqe18j20w00w00x1.jpg" alt="莲子熊猫 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ww1.sinaimg.cn/large/912e0dbdgy1fnaroy3c8cj20u019iq8s.jpg" alt="莲子熊猫 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/杂，日记，Hexo/" rel="tag"># 杂，日记，Hexo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/08/caffe lmdb/" rel="next" title="Caffe时间（1） 如何将图片转换为Caffe所需要的LMDB格式">
+                <i class="fa fa-chevron-left"></i> Caffe时间（1） 如何将图片转换为Caffe所需要的LMDB格式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/09/image-net/" rel="prev" title="ImageNet下载地址">
+                ImageNet下载地址 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjY0NS85MjA2"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="莲子熊猫" />
+          <p class="site-author-name" itemprop="name">莲子熊猫</p>
+           
+              <p class="site-description motion-element" itemprop="description">Do What You Want</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/tags.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/stx3257" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/suntx325/" target="_blank" title="Instagram">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  Instagram
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://suntx32.lofter.com/" target="_blank" title="LOFTER">
+                  
+                    <i class="fa fa-fw fa-camera-retro"></i>
+                  
+                  LOFTER
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://tuchong.com/1102598/" target="_blank" title="图虫">
+                  
+                    <i class="fa fa-fw fa-camera"></i>
+                  
+                  图虫
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Simon32" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-概述"><span class="nav-number">1.</span> <span class="nav-text">1          概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-漏洞介绍"><span class="nav-number">2.</span> <span class="nav-text">2          漏洞介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-影响范围"><span class="nav-number">3.</span> <span class="nav-text">3          影响范围</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-漏洞分析"><span class="nav-number">4.</span> <span class="nav-text">4          漏洞分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-CPU缓存验证缺陷"><span class="nav-number">4.1.</span> <span class="nav-text">4.1         CPU缓存验证缺陷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-边信道攻击缓存"><span class="nav-number">4.2.</span> <span class="nav-text">4.2         边信道攻击缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-漏洞验证"><span class="nav-number">4.3.</span> <span class="nav-text">4.3         漏洞验证</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-检测与防御方法"><span class="nav-number">5.</span> <span class="nav-text">5          检测与防御方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-漏洞检测方法"><span class="nav-number">5.1.</span> <span class="nav-text">5.1         漏洞检测方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-载荷应对"><span class="nav-number">5.2.</span> <span class="nav-text">5.2         载荷应对</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-应对建议"><span class="nav-number">6.</span> <span class="nav-text">6          应对建议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录一：参考资料"><span class="nav-number">7.</span> <span class="nav-text">附录一：参考资料</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录二：关于安天"><span class="nav-number">8.</span> <span class="nav-text">附录二：关于安天</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iMAGe-Park. All Rights Reserved. </span>
+</div>
+
+
+<div class="powered-by">
+  Powered by Hexo
+</div>
+
+<div class="theme-info">
+  Owned by Lotus Panda  
+</div>
+
+<div>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.1"></script>
+
+
+  
+
+</body>
+</html>
