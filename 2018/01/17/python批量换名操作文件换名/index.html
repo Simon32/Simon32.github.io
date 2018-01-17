@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -93,17 +93,22 @@
 
 
 
-<meta name="description" content="nothing">
+<meta name="description" content="先看一下文件结构，我需要更改的是这些.png文件的名字，这里只是用.png作为例子，其它类型请大家自行修改 下面附上Python代码，需要注意的地方已经写在了注释里面,  Python代码中路径记得用正斜杠或者两个反斜杠来写  本脚本是写在了下面C:/Users/tx/Desktop/image/train/多以记得使用os.chdir，转到当前目录，之前这个一直没有转换，导致一直没有成功执行">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python Note">
-<meta property="og:url" content="http://yoursite.com/2017/11/10/Python Note/index.html">
+<meta property="og:title" content="利用Python脚本来对文件进行重命名操作">
+<meta property="og:url" content="http://yoursite.com/2018/01/17/python批量换名操作文件换名/index.html">
 <meta property="og:site_name" content="iMAGe-Park">
-<meta property="og:description" content="nothing">
+<meta property="og:description" content="先看一下文件结构，我需要更改的是这些.png文件的名字，这里只是用.png作为例子，其它类型请大家自行修改 下面附上Python代码，需要注意的地方已经写在了注释里面,  Python代码中路径记得用正斜杠或者两个反斜杠来写  本脚本是写在了下面C:/Users/tx/Desktop/image/train/多以记得使用os.chdir，转到当前目录，之前这个一直没有转换，导致一直没有成功执行">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-12-23T12:38:42.278Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/912e0dbdly1fnjkhcs5xsj2050035t8k.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/912e0dbdly1fnjj0qi606j20gz0c1dh3.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/912e0dbdly1fnjkk91sevj205m0a1q2s.jpg">
+<meta property="og:updated_time" content="2018-01-17T14:46:50.883Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python Note">
-<meta name="twitter:description" content="nothing">
+<meta name="twitter:title" content="利用Python脚本来对文件进行重命名操作">
+<meta name="twitter:description" content="先看一下文件结构，我需要更改的是这些.png文件的名字，这里只是用.png作为例子，其它类型请大家自行修改 下面附上Python代码，需要注意的地方已经写在了注释里面,  Python代码中路径记得用正斜杠或者两个反斜杠来写  本脚本是写在了下面C:/Users/tx/Desktop/image/train/多以记得使用os.chdir，转到当前目录，之前这个一直没有转换，导致一直没有成功执行">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/912e0dbdly1fnjkhcs5xsj2050035t8k.jpg">
 
 
 
@@ -131,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/10/Python Note/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/17/python批量换名操作文件换名/"/>
 
 
 
 
 
-  <title>Python Note | iMAGe-Park</title>
+  <title>利用Python脚本来对文件进行重命名操作 | iMAGe-Park</title>
   
 
 
@@ -256,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/10/Python Note/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/17/python批量换名操作文件换名/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="莲子熊猫">
@@ -273,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python Note</h1>
+          <h1 class="post-title" itemprop="name headline">利用Python脚本来对文件进行重命名操作</h1>
         
 
         <div class="post-meta">
@@ -285,8 +290,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-10T00:00:00+08:00">
-                2017-11-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-17T00:00:00+08:00">
+                2018-01-17
               </time>
             
 
@@ -320,7 +325,22 @@
       
 
       
-        <p>nothing</p>
+        <p>先看一下文件结构，我需要更改的是这些.png文件的名字，这里只是用.png作为例子，其它类型请大家自行修改</p>
+<p>下面附上Python代码，需要注意的地方已经写在了注释里面,</p>
+<ul>
+<li><p>Python代码中路径记得用正斜杠或者两个反斜杠来写</p>
+</li>
+<li><p>本脚本是写在了下面C:/Users/tx/Desktop/image/train/多以记得使用os.chdir，转到当前目录，之前这个一直没有转换，导致一直没有成功执行</p>
+</li>
+</ul>
+<p>未经过改动之前</p>
+<p><img src="http://ww1.sinaimg.cn/large/912e0dbdly1fnjkhcs5xsj2050035t8k.jpg" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">path = <span class="string">'C:/Users/tx/Desktop/image/train/img'</span>  <span class="comment"># 此处记得用 /  或者 \\来标明路径</span></span><br><span class="line">os.chdir(path)  <span class="comment"># 此处记得将pwd转换到path目录，这个地方一直没有转，然后变量的名称要用有意义的单词，少产生警告</span></span><br><span class="line">FileList = os.listdir(path)</span><br><span class="line">FileList = sorted(FileList, key=<span class="keyword">lambda</span> k: int(re.match(<span class="string">r'(\d+)'</span>, k).group()))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(FileList)):</span><br><span class="line">    print(FileList[i])</span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> range(len(FileList)):</span><br><span class="line">    <span class="keyword">if</span> num &lt; <span class="number">9</span>:</span><br><span class="line">        os.rename(FileList[num], <span class="string">'00000'</span> + str(num + <span class="number">1</span>) + <span class="string">'.png'</span>)</span><br><span class="line">    <span class="keyword">elif</span> <span class="number">8</span> &lt; num &lt; <span class="number">99</span>:</span><br><span class="line">        os.rename(FileList[num], <span class="string">'0000'</span> + str(num + <span class="number">1</span>) + <span class="string">'.png'</span>)</span><br><span class="line">    <span class="keyword">elif</span> <span class="number">98</span> &lt; num:</span><br><span class="line">        os.rename(FileList[num], <span class="string">'000'</span> + str(num + <span class="number">1</span>) + <span class="string">'.png'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://ww1.sinaimg.cn/large/912e0dbdly1fnjj0qi606j20gz0c1dh3.jpg" alt=""></p>
+<p>下面这个用来生成FCN训练时候需要的列表文件，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">f=open(<span class="string">'train.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    f.write(<span class="string">'00000'</span>+str(i)+<span class="string">'\n'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>,<span class="number">100</span>):</span><br><span class="line">    f.write(<span class="string">'0000'</span>+str(i)+<span class="string">'\n'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>,<span class="number">148</span>):</span><br><span class="line">	f.write(<span class="string">'000'</span>+str(i)+<span class="string">'\n'</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p>结果是这样↓</p>
+<p><img src="http://ww1.sinaimg.cn/large/912e0dbdly1fnjkk91sevj205m0a1q2s.jpg" alt=""></p>
 
       
     </div>
@@ -369,6 +389,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
 
       
       
@@ -378,8 +404,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/10/Pointer Array&Array Pointer/" rel="next" title="Pointer Array&Array Pointer">
-                <i class="fa fa-chevron-left"></i> Pointer Array&Array Pointer
+              <a href="/2018/01/09/1.9杂/" rel="next" title="2018.1.9杂">
+                <i class="fa fa-chevron-left"></i> 2018.1.9杂
               </a>
             
           </div>
@@ -387,10 +413,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/10/Some Notes/" rel="prev" title="Some Notes">
-                Some Notes <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
