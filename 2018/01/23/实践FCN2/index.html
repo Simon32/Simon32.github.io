@@ -93,13 +93,13 @@
 
 
 
-<meta name="description" content="上次由于测试数据不足导致最后的model的训练效果并不是特别好，这里需要扩充训练集，但是看了一圈也没有太好的方法来实现自动抠图，于是自己动手丰衣足食，不就是1.5K张图吗（实际上笔者抠这些图用了4天，有三天是抠图8个小时以上，还有一天由于是周末就没都用来抠图，一把辛酸泪）。 跟之前那个博客中实践的内容相比，这里我们只是将训练集换成了自己制作的数据集，其中原始图片来自于imagenet，至于grou">
+<meta name="description" content="#自制训练集训练FCN（对上一篇Caffe时间的补充） 上次由于测试数据不足导致最后的model的训练效果并不是特别好，这里需要扩充训练集，但是看了一圈也没有太好的方法来实现自动抠图，于是自己动手丰衣足食，不就是1.5K张图吗（实际上笔者抠这些图用了4天，有三天是抠图8个小时以上，还有一天由于是周末就没都用来抠图，一把辛酸泪）。 跟之前那个博客中实践的内容相比，这里我们只是将训练集换成了自己制作的">
 <meta name="keywords" content="Caffe,FCN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Caffe时间（5） 实践FCN-AlexNet（二）自制训练集训练FCN（对上一篇Caffe时间的补充）">
+<meta property="og:title" content="Caffe时间（5） 实践FCN-AlexNet（二）">
 <meta property="og:url" content="http://yoursite.com/2018/01/23/实践FCN2/index.html">
 <meta property="og:site_name" content="iMAGe-Park">
-<meta property="og:description" content="上次由于测试数据不足导致最后的model的训练效果并不是特别好，这里需要扩充训练集，但是看了一圈也没有太好的方法来实现自动抠图，于是自己动手丰衣足食，不就是1.5K张图吗（实际上笔者抠这些图用了4天，有三天是抠图8个小时以上，还有一天由于是周末就没都用来抠图，一把辛酸泪）。 跟之前那个博客中实践的内容相比，这里我们只是将训练集换成了自己制作的数据集，其中原始图片来自于imagenet，至于grou">
+<meta property="og:description" content="#自制训练集训练FCN（对上一篇Caffe时间的补充） 上次由于测试数据不足导致最后的model的训练效果并不是特别好，这里需要扩充训练集，但是看了一圈也没有太好的方法来实现自动抠图，于是自己动手丰衣足食，不就是1.5K张图吗（实际上笔者抠这些图用了4天，有三天是抠图8个小时以上，还有一天由于是周末就没都用来抠图，一把辛酸泪）。 跟之前那个博客中实践的内容相比，这里我们只是将训练集换成了自己制作的">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://ww1.sinaimg.cn/mw690/912e0dbdly1fnql181ah0j20iz0ki79r.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/mw690/912e0dbdly1fnql1gvf57j20iz0ki11i.jpg">
@@ -113,10 +113,10 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/912e0dbdly1fnqkqmp5c4j20np0domxw.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/mw690/912e0dbdly1fnqleygmd8j21hc0u0470.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/mw690/912e0dbdly1fnqlgkcx4aj20u01hc46g.jpg">
-<meta property="og:updated_time" content="2018-01-23T14:04:10.929Z">
+<meta property="og:updated_time" content="2018-01-23T14:08:34.027Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Caffe时间（5） 实践FCN-AlexNet（二）自制训练集训练FCN（对上一篇Caffe时间的补充）">
-<meta name="twitter:description" content="上次由于测试数据不足导致最后的model的训练效果并不是特别好，这里需要扩充训练集，但是看了一圈也没有太好的方法来实现自动抠图，于是自己动手丰衣足食，不就是1.5K张图吗（实际上笔者抠这些图用了4天，有三天是抠图8个小时以上，还有一天由于是周末就没都用来抠图，一把辛酸泪）。 跟之前那个博客中实践的内容相比，这里我们只是将训练集换成了自己制作的数据集，其中原始图片来自于imagenet，至于grou">
+<meta name="twitter:title" content="Caffe时间（5） 实践FCN-AlexNet（二）">
+<meta name="twitter:description" content="#自制训练集训练FCN（对上一篇Caffe时间的补充） 上次由于测试数据不足导致最后的model的训练效果并不是特别好，这里需要扩充训练集，但是看了一圈也没有太好的方法来实现自动抠图，于是自己动手丰衣足食，不就是1.5K张图吗（实际上笔者抠这些图用了4天，有三天是抠图8个小时以上，还有一天由于是周末就没都用来抠图，一把辛酸泪）。 跟之前那个博客中实践的内容相比，这里我们只是将训练集换成了自己制作的">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/mw690/912e0dbdly1fnql181ah0j20iz0ki79r.jpg">
 
 
@@ -151,7 +151,7 @@
 
 
 
-  <title>Caffe时间（5） 实践FCN-AlexNet（二）自制训练集训练FCN（对上一篇Caffe时间的补充） | iMAGe-Park</title>
+  <title>Caffe时间（5） 实践FCN-AlexNet（二） | iMAGe-Park</title>
   
 
 
@@ -287,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Caffe时间（5） 实践FCN-AlexNet（二）自制训练集训练FCN（对上一篇Caffe时间的补充）</h1>
+          <h1 class="post-title" itemprop="name headline">Caffe时间（5） 实践FCN-AlexNet（二）</h1>
         
 
         <div class="post-meta">
@@ -334,7 +334,8 @@
       
 
       
-        <p>上次由于测试数据不足导致最后的model的训练效果并不是特别好，这里需要扩充训练集，但是看了一圈也没有太好的方法来实现自动抠图，于是自己动手丰衣足食，不就是1.5K张图吗（实际上笔者抠这些图用了4天，有三天是抠图8个小时以上，还有一天由于是周末就没都用来抠图，一把辛酸泪）。</p>
+        <p>#自制训练集训练FCN（对上一篇Caffe时间的补充）</p>
+<p>上次由于测试数据不足导致最后的model的训练效果并不是特别好，这里需要扩充训练集，但是看了一圈也没有太好的方法来实现自动抠图，于是自己动手丰衣足食，不就是1.5K张图吗（实际上笔者抠这些图用了4天，有三天是抠图8个小时以上，还有一天由于是周末就没都用来抠图，一把辛酸泪）。</p>
 <p>跟之前那个博客中实践的内容相比，这里我们只是将训练集换成了自己制作的数据集，其中原始图片来自于imagenet，至于groundtruth图没有提供所以只能自己像上面一样手动抠图。</p>
 <p>借助的工具就是Photoshop了，方法如下，但是PS处理后有问题，下面我们再讲</p>
 <p>1、首先导入图片</p>
@@ -440,8 +441,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/17/实践FCN/" rel="next" title="Caffe时间（4） 实践FCN-AlexNet（一）用灰度图像训练FCN（一步一步从训练到验证带你实践FCN）">
-                <i class="fa fa-chevron-left"></i> Caffe时间（4） 实践FCN-AlexNet（一）用灰度图像训练FCN（一步一步从训练到验证带你实践FCN）
+              <a href="/2018/01/17/实践FCN/" rel="next" title="Caffe时间（4） 实践FCN-AlexNet（一）">
+                <i class="fa fa-chevron-left"></i> Caffe时间（4） 实践FCN-AlexNet（一）
               </a>
             
           </div>

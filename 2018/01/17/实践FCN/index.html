@@ -93,22 +93,22 @@
 
 
 
-<meta name="description" content="首先我们假定已经成功编译Caffe，并且已经拥有了caffe的Python接口，如果这些没有做好，下面很难成功，配置的话主要还是环境变量的问题，在这里也是遇到了很大的麻烦，关于环境变量怎么配置之后再写一篇说明。 遇到的问题：首先记录一下可能遇到的一些问题，遇到问题不要慌，多谷歌、多分析、多和别人交流问题就可迎刃而解： 发一个有情链接，几个比较好的Caffe讨论群吧，  status == CUDN">
+<meta name="description" content="用灰度图像训练FCN（一步一步从训练到验证带你实践FCN）首先我们假定已经成功编译Caffe，并且已经拥有了caffe的Python接口，如果这些没有做好，下面很难成功，配置的话主要还是环境变量的问题，在这里也是遇到了很大的麻烦，关于环境变量怎么配置之后再写一篇说明。 遇到的问题：首先记录一下可能遇到的一些问题，遇到问题不要慌，多谷歌、多分析、多和别人交流问题就可迎刃而解： 发一个有情链接，几个比">
 <meta name="keywords" content="Caffe,FCN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Caffe时间（4） 实践FCN-AlexNet（一）用灰度图像训练FCN（一步一步从训练到验证带你实践FCN）">
+<meta property="og:title" content="Caffe时间（4） 实践FCN-AlexNet（一）">
 <meta property="og:url" content="http://yoursite.com/2018/01/17/实践FCN/index.html">
 <meta property="og:site_name" content="iMAGe-Park">
-<meta property="og:description" content="首先我们假定已经成功编译Caffe，并且已经拥有了caffe的Python接口，如果这些没有做好，下面很难成功，配置的话主要还是环境变量的问题，在这里也是遇到了很大的麻烦，关于环境变量怎么配置之后再写一篇说明。 遇到的问题：首先记录一下可能遇到的一些问题，遇到问题不要慌，多谷歌、多分析、多和别人交流问题就可迎刃而解： 发一个有情链接，几个比较好的Caffe讨论群吧，  status == CUDN">
+<meta property="og:description" content="用灰度图像训练FCN（一步一步从训练到验证带你实践FCN）首先我们假定已经成功编译Caffe，并且已经拥有了caffe的Python接口，如果这些没有做好，下面很难成功，配置的话主要还是环境变量的问题，在这里也是遇到了很大的麻烦，关于环境变量怎么配置之后再写一篇说明。 遇到的问题：首先记录一下可能遇到的一些问题，遇到问题不要慌，多谷歌、多分析、多和别人交流问题就可迎刃而解： 发一个有情链接，几个比">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/912e0dbdly1fnqgoalcihj22bk18iajp.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/912e0dbdly1fnqhd3y7ksj21hc0u0agw.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/912e0dbdly1fnqhda4g07j21hc0u0jyt.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/912e0dbdly1fnqhdr4gq9j21hc0u00xw.jpg">
-<meta property="og:updated_time" content="2018-01-23T14:04:15.998Z">
+<meta property="og:updated_time" content="2018-01-23T14:08:15.257Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Caffe时间（4） 实践FCN-AlexNet（一）用灰度图像训练FCN（一步一步从训练到验证带你实践FCN）">
-<meta name="twitter:description" content="首先我们假定已经成功编译Caffe，并且已经拥有了caffe的Python接口，如果这些没有做好，下面很难成功，配置的话主要还是环境变量的问题，在这里也是遇到了很大的麻烦，关于环境变量怎么配置之后再写一篇说明。 遇到的问题：首先记录一下可能遇到的一些问题，遇到问题不要慌，多谷歌、多分析、多和别人交流问题就可迎刃而解： 发一个有情链接，几个比较好的Caffe讨论群吧，  status == CUDN">
+<meta name="twitter:title" content="Caffe时间（4） 实践FCN-AlexNet（一）">
+<meta name="twitter:description" content="用灰度图像训练FCN（一步一步从训练到验证带你实践FCN）首先我们假定已经成功编译Caffe，并且已经拥有了caffe的Python接口，如果这些没有做好，下面很难成功，配置的话主要还是环境变量的问题，在这里也是遇到了很大的麻烦，关于环境变量怎么配置之后再写一篇说明。 遇到的问题：首先记录一下可能遇到的一些问题，遇到问题不要慌，多谷歌、多分析、多和别人交流问题就可迎刃而解： 发一个有情链接，几个比">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/912e0dbdly1fnqgoalcihj22bk18iajp.jpg">
 
 
@@ -143,7 +143,7 @@
 
 
 
-  <title>Caffe时间（4） 实践FCN-AlexNet（一）用灰度图像训练FCN（一步一步从训练到验证带你实践FCN） | iMAGe-Park</title>
+  <title>Caffe时间（4） 实践FCN-AlexNet（一） | iMAGe-Park</title>
   
 
 
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Caffe时间（4） 实践FCN-AlexNet（一）用灰度图像训练FCN（一步一步从训练到验证带你实践FCN）</h1>
+          <h1 class="post-title" itemprop="name headline">Caffe时间（4） 实践FCN-AlexNet（一）</h1>
         
 
         <div class="post-meta">
@@ -326,7 +326,7 @@
       
 
       
-        <p>首先我们假定已经成功编译Caffe，并且已经拥有了caffe的Python接口，如果这些没有做好，下面很难成功，配置的话主要还是环境变量的问题，在这里也是遇到了很大的麻烦，关于环境变量怎么配置之后再写一篇说明。</p>
+        <h1 id="用灰度图像训练FCN（一步一步从训练到验证带你实践FCN）"><a href="#用灰度图像训练FCN（一步一步从训练到验证带你实践FCN）" class="headerlink" title="用灰度图像训练FCN（一步一步从训练到验证带你实践FCN）"></a>用灰度图像训练FCN（一步一步从训练到验证带你实践FCN）</h1><p>首先我们假定已经成功编译Caffe，并且已经拥有了caffe的Python接口，如果这些没有做好，下面很难成功，配置的话主要还是环境变量的问题，在这里也是遇到了很大的麻烦，关于环境变量怎么配置之后再写一篇说明。</p>
 <h2 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h2><p>首先记录一下可能遇到的一些问题，遇到问题不要慌，多谷歌、多分析、多和别人交流问题就可迎刃而解：</p>
 <p>发一个有情链接，几个比较好的Caffe讨论群吧，</p>
 <ol>
@@ -462,8 +462,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/23/实践FCN2/" rel="prev" title="Caffe时间（5） 实践FCN-AlexNet（二）自制训练集训练FCN（对上一篇Caffe时间的补充）">
-                Caffe时间（5） 实践FCN-AlexNet（二）自制训练集训练FCN（对上一篇Caffe时间的补充） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/23/实践FCN2/" rel="prev" title="Caffe时间（5） 实践FCN-AlexNet（二）">
+                Caffe时间（5） 实践FCN-AlexNet（二） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -634,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题："><span class="nav-number">1.</span> <span class="nav-text">遇到的问题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接："><span class="nav-number">2.</span> <span class="nav-text">参考链接：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件结构："><span class="nav-number">3.</span> <span class="nav-text">文件结构：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对文件进行配置："><span class="nav-number">4.</span> <span class="nav-text">对文件进行配置：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#train-txt和val-txt"><span class="nav-number">4.1.</span> <span class="nav-text">train.txt和val.txt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solver-prototxt"><span class="nav-number">4.2.</span> <span class="nav-text">solver.prototxt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#train-prototxt"><span class="nav-number">4.3.</span> <span class="nav-text">train.prototxt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#val-prototxt"><span class="nav-number">4.4.</span> <span class="nav-text">val.prototxt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#voc-layer-py"><span class="nav-number">4.5.</span> <span class="nav-text">voc_layer.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solve-py"><span class="nav-number">4.6.</span> <span class="nav-text">solve.py</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试生成的模型"><span class="nav-number">5.</span> <span class="nav-text">测试生成的模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#infer-py"><span class="nav-number">5.1.</span> <span class="nav-text">infer.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deploy-prototxt"><span class="nav-number">5.2.</span> <span class="nav-text">deploy.prototxt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#笔者在参考博客下面的留言"><span class="nav-number">5.3.</span> <span class="nav-text">笔者在参考博客下面的留言</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#用灰度图像训练FCN（一步一步从训练到验证带你实践FCN）"><span class="nav-number">1.</span> <span class="nav-text">用灰度图像训练FCN（一步一步从训练到验证带你实践FCN）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题："><span class="nav-number">1.1.</span> <span class="nav-text">遇到的问题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接："><span class="nav-number">1.2.</span> <span class="nav-text">参考链接：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件结构："><span class="nav-number">1.3.</span> <span class="nav-text">文件结构：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对文件进行配置："><span class="nav-number">1.4.</span> <span class="nav-text">对文件进行配置：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#train-txt和val-txt"><span class="nav-number">1.4.1.</span> <span class="nav-text">train.txt和val.txt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solver-prototxt"><span class="nav-number">1.4.2.</span> <span class="nav-text">solver.prototxt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#train-prototxt"><span class="nav-number">1.4.3.</span> <span class="nav-text">train.prototxt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#val-prototxt"><span class="nav-number">1.4.4.</span> <span class="nav-text">val.prototxt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#voc-layer-py"><span class="nav-number">1.4.5.</span> <span class="nav-text">voc_layer.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solve-py"><span class="nav-number">1.4.6.</span> <span class="nav-text">solve.py</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试生成的模型"><span class="nav-number">1.5.</span> <span class="nav-text">测试生成的模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#infer-py"><span class="nav-number">1.5.1.</span> <span class="nav-text">infer.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deploy-prototxt"><span class="nav-number">1.5.2.</span> <span class="nav-text">deploy.prototxt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#笔者在参考博客下面的留言"><span class="nav-number">1.5.3.</span> <span class="nav-text">笔者在参考博客下面的留言</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
