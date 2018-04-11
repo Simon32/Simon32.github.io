@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -93,16 +93,18 @@
 
 
 
-<meta name="description" content="Do What You Want">
-<meta property="og:type" content="website">
-<meta property="og:title" content="iMAGe-Park">
-<meta property="og:url" content="http://yoursite.com/tags/FCN/index.html">
+<meta name="description" content="装饰器是一个函数，它返回一个函数 注意functools.wraps的使用  两层嵌套的装饰器import functools def log(func):         @functools.wraps     def wrapper(*args,**kw):         print(&amp;apos;call %s()&amp;apos;% func.__name__)         return">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python学习笔记2：装饰器(decorator)">
+<meta property="og:url" content="http://yoursite.com/2018/04/04/python装饰器/index.html">
 <meta property="og:site_name" content="iMAGe-Park">
-<meta property="og:description" content="Do What You Want">
+<meta property="og:description" content="装饰器是一个函数，它返回一个函数 注意functools.wraps的使用  两层嵌套的装饰器import functools def log(func):         @functools.wraps     def wrapper(*args,**kw):         print(&amp;apos;call %s()&amp;apos;% func.__name__)         return">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-04-11T13:44:12.003Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iMAGe-Park">
-<meta name="twitter:description" content="Do What You Want">
+<meta name="twitter:title" content="Python学习笔记2：装饰器(decorator)">
+<meta name="twitter:description" content="装饰器是一个函数，它返回一个函数 注意functools.wraps的使用  两层嵌套的装饰器import functools def log(func):         @functools.wraps     def wrapper(*args,**kw):         print(&amp;apos;call %s()&amp;apos;% func.__name__)         return">
 
 
 
@@ -130,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/FCN/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/04/python装饰器/"/>
 
 
 
 
 
-  <title>Tag: FCN | iMAGe-Park</title>
+  <title>Python学习笔记2：装饰器(decorator) | iMAGe-Park</title>
   
 
 
@@ -161,7 +163,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,72 +247,189 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>FCN<small>Tag</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/23/实践FCN2/" itemprop="url">
-              
-                <span itemprop="name">Caffe时间（4） 实践FCN-AlexNet（二）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-23T00:00:00+08:00"
-              content="2018-01-23" >
-          01-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/17/实践FCN/" itemprop="url">
-              
-                <span itemprop="name">Caffe时间（3） 实践FCN-AlexNet（一）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-17T00:00:00+08:00"
-              content="2018-01-17" >
-          01-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/04/python装饰器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="莲子熊猫">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iMAGe-Park">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python学习笔记2：装饰器(decorator)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-04T00:00:00+08:00">
+                2018-04-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>装饰器是一个函数，它返回一个函数</li>
+<li>注意functools.wraps的使用</li>
+</ul>
+<h2 id="两层嵌套的装饰器"><a href="#两层嵌套的装饰器" class="headerlink" title="两层嵌套的装饰器"></a>两层嵌套的装饰器</h2><pre><code>import functools
+def log(func):    
+    @functools.wraps
+    def wrapper(*args,**kw):
+        print(&apos;call %s()&apos;% func.__name__)
+        return func(*args,**kw)
+    rerurn wrapper
+</code></pre><h2 id="三层嵌套的装饰器（针对带参数的装饰器）"><a href="#三层嵌套的装饰器（针对带参数的装饰器）" class="headerlink" title="三层嵌套的装饰器（针对带参数的装饰器）"></a>三层嵌套的装饰器（针对带参数的装饰器）</h2><pre><code>import functools
+def log(text):
+    def decorator(func):
+        @functools.wraps
+        def wrapper(*args,**kw):
+            print(&apos;%s %s():&apos; % (text,func.__name__))
+            return func(*args,**kw)
+        return wrapper
+    return decorator
+</code></pre><hr>
+<h1 id="练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间："><a href="#练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间：" class="headerlink" title="练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间："></a>练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间：</h1>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ww1.sinaimg.cn/large/912e0dbdgy1fnarpbqe18j20w00w00x1.jpg" alt="莲子熊猫 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ww1.sinaimg.cn/large/912e0dbdgy1fnaroy3c8cj20u019iq8s.jpg" alt="莲子熊猫 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/04/python参数类型/" rel="next" title="Python学习笔记1：函数参数">
+                <i class="fa fa-chevron-left"></i> Python学习笔记1：函数参数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -318,6 +437,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjY0NS85MjA2"></div>
+    
+  </div>
+
 
         </div>
         
@@ -338,8 +463,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -439,6 +573,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#两层嵌套的装饰器"><span class="nav-number">1.</span> <span class="nav-text">两层嵌套的装饰器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三层嵌套的装饰器（针对带参数的装饰器）"><span class="nav-number">2.</span> <span class="nav-text">三层嵌套的装饰器（针对带参数的装饰器）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间："><span class="nav-number"></span> <span class="nav-text">练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间：</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -558,10 +708,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
@@ -590,6 +740,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
