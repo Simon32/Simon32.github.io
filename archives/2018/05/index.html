@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -93,18 +93,16 @@
 
 
 
-<meta name="description" content="装饰器是一个函数，它返回一个函数 注意functools.wraps的使用  两层嵌套的装饰器import functools def log(func):         @functools.wraps     def wrapper(*args,**kw):         print(&amp;apos;call %s()&amp;apos;% func.__name__)         return">
-<meta name="keywords" content="Python">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Python学习笔记2：装饰器(decorator)">
-<meta property="og:url" content="http://yoursite.com/2018/04/04/python装饰器/index.html">
+<meta name="description" content="Do What You Want">
+<meta property="og:type" content="website">
+<meta property="og:title" content="iMAGe-Park">
+<meta property="og:url" content="http://yoursite.com/archives/2018/05/index.html">
 <meta property="og:site_name" content="iMAGe-Park">
-<meta property="og:description" content="装饰器是一个函数，它返回一个函数 注意functools.wraps的使用  两层嵌套的装饰器import functools def log(func):         @functools.wraps     def wrapper(*args,**kw):         print(&amp;apos;call %s()&amp;apos;% func.__name__)         return">
+<meta property="og:description" content="Do What You Want">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-11T13:44:12.003Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python学习笔记2：装饰器(decorator)">
-<meta name="twitter:description" content="装饰器是一个函数，它返回一个函数 注意functools.wraps的使用  两层嵌套的装饰器import functools def log(func):         @functools.wraps     def wrapper(*args,**kw):         print(&amp;apos;call %s()&amp;apos;% func.__name__)         return">
+<meta name="twitter:title" content="iMAGe-Park">
+<meta name="twitter:description" content="Do What You Want">
 
 
 
@@ -132,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/04/python装饰器/"/>
+  <link rel="canonical" href="http://yoursite.com/archives/2018/05/"/>
 
 
 
 
 
-  <title>Python学习笔记2：装饰器(decorator) | iMAGe-Park</title>
+  <title>Archive | iMAGe-Park</title>
   
 
 
@@ -163,7 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  page-archive  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,193 +245,66 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  <section id="posts" class="posts-collapse">
+    <span class="archive-move-on"></span>
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/04/python装饰器/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="莲子熊猫">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="iMAGe-Park">
+    <span class="archive-page-counter">
+      
+      
+      
+        
+      
+      Um..! 30 posts in total. Keep on posting.
     </span>
 
     
-      <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">Python学习笔记2：装饰器(decorator)</h1>
-        
+      
+      
+      
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+      
+        
+        <div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
+        </div>
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/05/20/python坑/" itemprop="url">
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span itemprop="name">Python踩过的那些坑（1）</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-04T00:00:00+08:00">
-                2018-04-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <ul>
-<li>装饰器是一个函数，它返回一个函数</li>
-<li>注意functools.wraps的使用</li>
-</ul>
-<h2 id="两层嵌套的装饰器"><a href="#两层嵌套的装饰器" class="headerlink" title="两层嵌套的装饰器"></a>两层嵌套的装饰器</h2><pre><code>import functools
-def log(func):    
-    @functools.wraps
-    def wrapper(*args,**kw):
-        print(&apos;call %s()&apos;% func.__name__)
-        return func(*args,**kw)
-    rerurn wrapper
-</code></pre><h2 id="三层嵌套的装饰器（针对带参数的装饰器）"><a href="#三层嵌套的装饰器（针对带参数的装饰器）" class="headerlink" title="三层嵌套的装饰器（针对带参数的装饰器）"></a>三层嵌套的装饰器（针对带参数的装饰器）</h2><pre><code>import functools
-def log(text):
-    def decorator(func):
-        @functools.wraps
-        def wrapper(*args,**kw):
-            print(&apos;%s %s():&apos; % (text,func.__name__))
-            return func(*args,**kw)
-        return wrapper
-    return decorator
-</code></pre><hr>
-<h1 id="练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间："><a href="#练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间：" class="headerlink" title="练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间："></a>练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间：</h1>
-      
-    </div>
-
-    <div>
-      
+            </a>
         
+      </h2>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-05-20T00:00:00+08:00"
+              content="2018-05-20" >
+          05-20
+        </time>
+      </div>
 
-    <div>
-      
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>坚持原创分享，您的支持将鼓励我继续创作！</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://ww1.sinaimg.cn/large/912e0dbdgy1fnarpbqe18j20w00w00x1.jpg" alt="莲子熊猫 WeChat Pay"/>
-          <p>微信打赏</p>
-        </div>
-      
-      
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://ww1.sinaimg.cn/large/912e0dbdgy1fnaroy3c8cj20u019iq8s.jpg" alt="莲子熊猫 Alipay"/>
-          <p>支付宝打赏</p>
-        </div>
-      
-    </div>
-  </div>
-
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Python/" rel="tag"># Python</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/04/04/python参数类型/" rel="next" title="Python学习笔记1：函数参数">
-                <i class="fa fa-chevron-left"></i> Python学习笔记1：函数参数
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/14/RE/" rel="prev" title="Regular Expression">
-                Regular Expression <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+    
+
+  </section>
+
+  
+
 
 
           </div>
@@ -441,12 +312,6 @@ def log(text):
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjY0NS85MjA2"></div>
-    
-  </div>
-
 
         </div>
         
@@ -467,17 +332,8 @@ def log(text):
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -577,22 +433,6 @@ def log(text):
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#两层嵌套的装饰器"><span class="nav-number">1.</span> <span class="nav-text">两层嵌套的装饰器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三层嵌套的装饰器（针对带参数的装饰器）"><span class="nav-number">2.</span> <span class="nav-text">三层嵌套的装饰器（针对带参数的装饰器）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间："><span class="nav-number"></span> <span class="nav-text">练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间：</span></a></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -712,9 +552,11 @@ def log(text):
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
 
 
   
@@ -744,17 +586,6 @@ def log(text):
 
 
 
-  
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
   
 
 

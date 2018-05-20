@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="装饰器是一个函数，它返回一个函数 注意functools.wraps的使用  两层嵌套的装饰器import functools def log(func):         @functools.wraps     def wrapper(*args,**kw):         print(&amp;apos;call %s()&amp;apos;% func.__name__)         return">
+<meta name="description" content="1、函数的默认函数一定要是不变对象(immutable) str int float tuple 数值型（number）  看下面一个例子: def foo(bar=[]):     bar.append(&amp;apos;a&amp;apos;)     return bar print(foo())#[&amp;apos;a&amp;apos;] print(foo())#[&amp;apos;a&amp;apos;,&amp;apos;a&amp;ap">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python学习笔记2：装饰器(decorator)">
-<meta property="og:url" content="http://yoursite.com/2018/04/04/python装饰器/index.html">
+<meta property="og:title" content="Python踩过的那些坑（1）">
+<meta property="og:url" content="http://yoursite.com/2018/05/20/python坑/index.html">
 <meta property="og:site_name" content="iMAGe-Park">
-<meta property="og:description" content="装饰器是一个函数，它返回一个函数 注意functools.wraps的使用  两层嵌套的装饰器import functools def log(func):         @functools.wraps     def wrapper(*args,**kw):         print(&amp;apos;call %s()&amp;apos;% func.__name__)         return">
+<meta property="og:description" content="1、函数的默认函数一定要是不变对象(immutable) str int float tuple 数值型（number）  看下面一个例子: def foo(bar=[]):     bar.append(&amp;apos;a&amp;apos;)     return bar print(foo())#[&amp;apos;a&amp;apos;] print(foo())#[&amp;apos;a&amp;apos;,&amp;apos;a&amp;ap">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-11T13:44:12.003Z">
+<meta property="og:updated_time" content="2018-05-20T13:53:32.669Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python学习笔记2：装饰器(decorator)">
-<meta name="twitter:description" content="装饰器是一个函数，它返回一个函数 注意functools.wraps的使用  两层嵌套的装饰器import functools def log(func):         @functools.wraps     def wrapper(*args,**kw):         print(&amp;apos;call %s()&amp;apos;% func.__name__)         return">
+<meta name="twitter:title" content="Python踩过的那些坑（1）">
+<meta name="twitter:description" content="1、函数的默认函数一定要是不变对象(immutable) str int float tuple 数值型（number）  看下面一个例子: def foo(bar=[]):     bar.append(&amp;apos;a&amp;apos;)     return bar print(foo())#[&amp;apos;a&amp;apos;] print(foo())#[&amp;apos;a&amp;apos;,&amp;apos;a&amp;ap">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/04/python装饰器/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/20/python坑/"/>
 
 
 
 
 
-  <title>Python学习笔记2：装饰器(decorator) | iMAGe-Park</title>
+  <title>Python踩过的那些坑（1） | iMAGe-Park</title>
   
 
 
@@ -257,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/04/python装饰器/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/20/python坑/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="莲子熊猫">
@@ -274,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python学习笔记2：装饰器(decorator)</h1>
+          <h1 class="post-title" itemprop="name headline">Python踩过的那些坑（1）</h1>
         
 
         <div class="post-meta">
@@ -286,8 +286,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-04T00:00:00+08:00">
-                2018-04-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-20T00:00:00+08:00">
+                2018-05-20
               </time>
             
 
@@ -321,28 +321,135 @@
       
 
       
-        <ul>
-<li>装饰器是一个函数，它返回一个函数</li>
-<li>注意functools.wraps的使用</li>
+        <h1 id="1、函数的默认函数一定要是不变对象-immutable"><a href="#1、函数的默认函数一定要是不变对象-immutable" class="headerlink" title="1、函数的默认函数一定要是不变对象(immutable)"></a>1、函数的默认函数一定要是不变对象(immutable)</h1><ul>
+<li>str</li>
+<li>int</li>
+<li>float</li>
+<li>tuple</li>
+<li>数值型（number）</li>
 </ul>
-<h2 id="两层嵌套的装饰器"><a href="#两层嵌套的装饰器" class="headerlink" title="两层嵌套的装饰器"></a>两层嵌套的装饰器</h2><pre><code>import functools
-def log(func):    
-    @functools.wraps
-    def wrapper(*args,**kw):
-        print(&apos;call %s()&apos;% func.__name__)
-        return func(*args,**kw)
-    rerurn wrapper
-</code></pre><h2 id="三层嵌套的装饰器（针对带参数的装饰器）"><a href="#三层嵌套的装饰器（针对带参数的装饰器）" class="headerlink" title="三层嵌套的装饰器（针对带参数的装饰器）"></a>三层嵌套的装饰器（针对带参数的装饰器）</h2><pre><code>import functools
-def log(text):
-    def decorator(func):
-        @functools.wraps
-        def wrapper(*args,**kw):
-            print(&apos;%s %s():&apos; % (text,func.__name__))
-            return func(*args,**kw)
-        return wrapper
-    return decorator
+<p>看下面一个例子:</p>
+<pre><code>def foo(bar=[]):
+    bar.append(&apos;a&apos;)
+    return bar
+print(foo())#[&apos;a&apos;]
+print(foo())#[&apos;a&apos;,&apos;a&apos;]
+print(foo())#[&apos;a&apos;,&apos;a&apos;,&apos;a&apos;]
+</code></pre><p>乍一眼一看，每次调用foo()，变量bar都应该重置为[]啊，为什么上一次的结果会进行保留呢？<br>从Python文档中可以找到这样一句话</p>
+<blockquote>
+<p>Important warning: The default value is evaluated only once. This makes a difference when the default is a mutable object such as a list, dictionary, or instances of most classes. For example, the following function accumulates the arguments passed to it on subsequent calls:</p>
+</blockquote>
+<p>翻译过来就是：重要警告：<strong>默认值只计算一次。当默认值是可变对象（如列表，字典或大多数类的实例）时，这会有所不同</strong>。例如，以下函数会累积在后续调用中传递给它的参数。</p>
+<hr>
+<p>黄哥给出了答案：<br><a href="https://zhuanlan.zhihu.com/p/37064591" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/37064591</a></p>
+<blockquote>
+<p>这个原因是由于默认参数只计算一次，因为list 是可变数据类型，函数每次调用时，L 是同一个对象的引用。</p>
+</blockquote>
+<p>在Stackoverflow上也找到了答案：<br><a href="https://stackoverflow.com/questions/25204126/python-function-optional-argument-evaluated-once" target="_blank" rel="noopener">https://stackoverflow.com/questions/25204126/python-function-optional-argument-evaluated-once</a></p>
+<blockquote>
+<p>In Python, functions are objects too, and the defaults are stored with the function object. Defaults are not locals; it is just that when the function is called, the arguments are bound to a default when not given an explicit value.</p>
+<p>When Python encounters a def <functionname>(<arguments>): statement, it creates a function object for you there and then; this is ‘definition time’; the function is not called but merely created. It is then that defaults are evaluated and stored, in an attribute on the function object.</arguments></functionname></p>
+<p>Then when you call the function, the defaults have already been created and are used when you didn’t provide a more concrete value for the argument. Because the defaults are stored with the function object, you get to see changes to mutable objects between function calls.</p>
+<p>The locals are still cleared up of course, but as they are references (all identifiers in Python are), the objects they were bound to are only cleared up if nothing else is referencing them anymore either.</p>
+<p>You can take a look a the defaults of any function object:</p>
+<blockquote>
+<blockquote>
+<p>def foo(bar=’spam’, eggs=[]):<br>    …     eggs.append(bar)<br>    …     return eggs<br>    …<br>foo.<strong>defaults</strong><br>    (‘spam’, [])<br>foo()<br>    [‘spam’]<br>foo.<strong>defaults</strong><br>    (‘spam’, [‘spam’])<br>foo() is foo.<strong>defaults</strong>[1]<br>    True<br>The foo() function has a <strong>defaults</strong> attribute, a tuple of default values to use when no values for the arguments have been passed in. You can see the mutable list change as the function is called, and because the function returns the eggs list, you can also see that it is the exact same object as the second value in that tuple.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>那么进行改进：</p>
+<pre><code>def foo(bar=None):
+    if bar is None:
+        bar=[]
+    bar.append(&apos;a&apos;)
+print(foo())#[&apos;a&apos;]
+print(foo())#[&apos;a&apos;]
+print(foo())#[&apos;a&apos;]
+</code></pre><p>最重要的，记住！！！，默认参数用 <strong><em>immutable</em></strong> 类型！</p>
+<h1 id="2、Python-惰性求值（Lazy-Evaluation）"><a href="#2、Python-惰性求值（Lazy-Evaluation）" class="headerlink" title="2、Python 惰性求值（Lazy Evaluation）"></a>2、Python 惰性求值（Lazy Evaluation）</h1><blockquote>
+<p>在编程语言理论中，惰性求值（英语：Lazy Evaluation），又译为惰性计算、懒惰求值，也称为传需求调用（call-by-need），是一个计算机编程中的一个概念，它的目的是要最小化计算机要做的工作。它有两个相关而又有区别的含意，可以表示为“延迟求值”和“最小化求值”，除可以得到性能的提升外，惰性计算的最重要的好处是它可以构造一个无限的数据类型。</p>
+<p>惰性求值的相反是及早求值，这是一个大多数编程语言所拥有的普通计算方式。</p>
+<p>延迟求值特别用于函数式编程语言中。在使用延迟求值的时候，表达式不在它被绑定到变量之后就立即求值，而是在该值被取用的时候求值，也就是说，语句如x:=expression; (把一个表达式的结果赋值给一个变量)明显的调用这个表达式被计算并把结果放置到x中，但是先不管实际在x中的是什么，直到通过后面的表达式中到x的引用而有了对它的值的需求的时候，而后面表达式自身的求值也可以被延迟，最终为了生成让外界看到的某个符号而计算这个快速增长的依赖树。</p>
+<p>以上内容来源于维基百科</p>
+</blockquote>
+<pre><code>li = [lambda :x for x in range(10)]
+res = li[0]()
+print(res)
+
+#输出：9
+</code></pre><p>但是为什么是9呢。。。真是令人苦恼</p>
+<hr>
+<p>黄哥的答案：<br><a href="https://zhuanlan.zhihu.com/p/37063984" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/37063984</a></p>
+<blockquote>
+<p>黄哥Python回答： 由于编程语言延迟求值的特性，在使用延迟求值的时候，表达式不在它被绑定到变量之后就立即求值，而是在该值被取用的时候求值，</p>
+<p>当调用li[0]() 函数时，x的值已经是9了，所以输出的是9</p>
+</blockquote>
+<p>那么再来一个，应该可以看出不同了<br>​<br>1.</p>
+<p>先定义了一个函数f(),之后在list中进行10次调用</p>
+<pre><code>f = lambda x: x*x
+[f(x) for x in range(10)]
+</code></pre><p>上面和下面的写法等效</p>
+<pre><code>[(lambda x:x*x)(x) for x in range(10)]
+</code></pre><p>out_1、</p>
+<pre><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 </code></pre><hr>
-<h1 id="练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间："><a href="#练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间：" class="headerlink" title="练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间："></a>练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间：</h1>
+<p>2、</p>
+<p>第二个没有调用函数，它创建了10个lambda匿名函数，并把他们放进了一个list中。</p>
+<pre><code>[lambda x: x*x for x in range(10)]
+</code></pre><p>out_2:</p>
+<pre><code>[&lt;function __main__.&lt;listcomp&gt;.&lt;lambda&gt;&gt;,
+ &lt;function __main__.&lt;listcomp&gt;.&lt;lambda&gt;&gt;,
+ &lt;function __main__.&lt;listcomp&gt;.&lt;lambda&gt;&gt;,
+ &lt;function __main__.&lt;listcomp&gt;.&lt;lambda&gt;&gt;,
+ &lt;function __main__.&lt;listcomp&gt;.&lt;lambda&gt;&gt;,
+ &lt;function __main__.&lt;listcomp&gt;.&lt;lambda&gt;&gt;,
+ &lt;function __main__.&lt;listcomp&gt;.&lt;lambda&gt;&gt;,
+&lt;function __main__.&lt;listcomp&gt;.&lt;lambda&gt;&gt;,
+ &lt;function __main__.&lt;listcomp&gt;.&lt;lambda&gt;&gt;,
+ &lt;function __main__.&lt;listcomp&gt;.&lt;lambda&gt;&gt;]
+</code></pre><p>看下面的代码</p>
+<pre><code>a=[lambda x: x*x for x in range(10)]
+for aa in a:
+    print(aa(5))
+</code></pre><p>输出结果是<br>​<br>    25<br>    25<br>    25<br>    25<br>    25<br>    25<br>    25<br>    25<br>    25<br>    25</p>
+<h1 id="3、Generator"><a href="#3、Generator" class="headerlink" title="3、Generator"></a>3、Generator</h1><p>看一个有趣的</p>
+<pre><code>li = [(lambda  :x for x in range(5))]
+#print(len(li[0]))
+for i  in li[0]:
+    print(i())
+print(&apos;-------------------------&apos;)
+li = [lambda  :x for x in range(5)]
+for i in li:
+    print(i())
+</code></pre><p>输出：</p>
+<pre><code>0
+1
+2
+3
+4
+-------------------------
+4
+4    
+4
+4
+4
+</code></pre><p>就问懵不懵：<br>上面的那个将 <strong><em>列表生成式</em></strong>的[]改成了（）就变成了<strong><em>generator</em></strong></p>
+<h2 id="创建generator的方法"><a href="#创建generator的方法" class="headerlink" title="创建generator的方法"></a>创建generator的方法</h2><h3 id="1、像上面所说将列表生成式该成圆括号"><a href="#1、像上面所说将列表生成式该成圆括号" class="headerlink" title="1、像上面所说将列表生成式该成圆括号"></a>1、像上面所说将列表生成式该成圆括号</h3><h3 id="2、利用yield来定义"><a href="#2、利用yield来定义" class="headerlink" title="2、利用yield来定义"></a>2、利用yield来定义</h3><pre><code>def fib(max):
+    n, a, b = 0, 0, 1
+    while n &lt; max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+    return &apos;done&apos;
+for f in fib(6):
+    print(f)
+</code></pre><p>今天是520，嗯，该干啥干啥吧，LOL~<br>继续搬砖，加油加油，挺住挺住 </p>
+<p>相关链接：</p>
+<p>[1]<a href="http://python.jobbole.com/86465/" title="Python 五个知识点搞定作用域" target="_blank" rel="noopener">http://python.jobbole.com/86465/</a></p>
+<p>[2]<a href="http://www.jb51.net/article/51939.htm" title="Python程序员开发中常犯的10个错误" target="_blank" rel="noopener">http://www.jb51.net/article/51939.htm</a></p>
+<p>[3]<a href="https://blog.csdn.net/ask_man/article/details/39379225" title="python 十大误区" target="_blank" rel="noopener">https://blog.csdn.net/ask_man/article/details/39379225</a></p>
+
       
     </div>
 
@@ -405,8 +512,8 @@ def log(text):
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/04/python参数类型/" rel="next" title="Python学习笔记1：函数参数">
-                <i class="fa fa-chevron-left"></i> Python学习笔记1：函数参数
+              <a href="/2018/04/14/RE/" rel="next" title="Regular Expression">
+                <i class="fa fa-chevron-left"></i> Regular Expression
               </a>
             
           </div>
@@ -414,10 +521,6 @@ def log(text):
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/14/RE/" rel="prev" title="Regular Expression">
-                Regular Expression <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -587,7 +690,7 @@ def log(text):
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#两层嵌套的装饰器"><span class="nav-number">1.</span> <span class="nav-text">两层嵌套的装饰器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三层嵌套的装饰器（针对带参数的装饰器）"><span class="nav-number">2.</span> <span class="nav-text">三层嵌套的装饰器（针对带参数的装饰器）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间："><span class="nav-number"></span> <span class="nav-text">练习：设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间：</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1、函数的默认函数一定要是不变对象-immutable"><span class="nav-number">1.</span> <span class="nav-text">1、函数的默认函数一定要是不变对象(immutable)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、Python-惰性求值（Lazy-Evaluation）"><span class="nav-number">2.</span> <span class="nav-text">2、Python 惰性求值（Lazy Evaluation）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3、Generator"><span class="nav-number">3.</span> <span class="nav-text">3、Generator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建generator的方法"><span class="nav-number">3.1.</span> <span class="nav-text">创建generator的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、像上面所说将列表生成式该成圆括号"><span class="nav-number">3.1.1.</span> <span class="nav-text">1、像上面所说将列表生成式该成圆括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、利用yield来定义"><span class="nav-number">3.1.2.</span> <span class="nav-text">2、利用yield来定义</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
