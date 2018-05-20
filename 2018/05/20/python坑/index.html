@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="iMAGe-Park">
 <meta property="og:description" content="1、函数的默认函数一定要是不变对象(immutable) str int float tuple 数值型（number）  看下面一个例子: def foo(bar=[]):     bar.append(&amp;apos;a&amp;apos;)     return bar print(foo())#[&amp;apos;a&amp;apos;] print(foo())#[&amp;apos;a&amp;apos;,&amp;apos;a&amp;ap">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-20T13:53:32.669Z">
+<meta property="og:updated_time" content="2018-05-20T13:57:31.990Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python踩过的那些坑（1）">
 <meta name="twitter:description" content="1、函数的默认函数一定要是不变对象(immutable) str int float tuple 数值型（number）  看下面一个例子: def foo(bar=[]):     bar.append(&amp;apos;a&amp;apos;)     return bar print(foo())#[&amp;apos;a&amp;apos;] print(foo())#[&amp;apos;a&amp;apos;,&amp;apos;a&amp;ap">
@@ -352,11 +352,8 @@ print(foo())#[&apos;a&apos;,&apos;a&apos;,&apos;a&apos;]
 <p>Then when you call the function, the defaults have already been created and are used when you didn’t provide a more concrete value for the argument. Because the defaults are stored with the function object, you get to see changes to mutable objects between function calls.</p>
 <p>The locals are still cleared up of course, but as they are references (all identifiers in Python are), the objects they were bound to are only cleared up if nothing else is referencing them anymore either.</p>
 <p>You can take a look a the defaults of any function object:</p>
-<blockquote>
-<blockquote>
-<p>def foo(bar=’spam’, eggs=[]):<br>    …     eggs.append(bar)<br>    …     return eggs<br>    …<br>foo.<strong>defaults</strong><br>    (‘spam’, [])<br>foo()<br>    [‘spam’]<br>foo.<strong>defaults</strong><br>    (‘spam’, [‘spam’])<br>foo() is foo.<strong>defaults</strong>[1]<br>    True<br>The foo() function has a <strong>defaults</strong> attribute, a tuple of default values to use when no values for the arguments have been passed in. You can see the mutable list change as the function is called, and because the function returns the eggs list, you can also see that it is the exact same object as the second value in that tuple.</p>
-</blockquote>
-</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(bar=<span class="string">'spam'</span>, eggs=[])</span>:</span></span><br><span class="line"><span class="meta">... </span>    eggs.append(bar)</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> eggs</span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>foo.__defaults__</span><br><span class="line">(<span class="string">'spam'</span>, [])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>foo()</span><br><span class="line">[<span class="string">'spam'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>foo.__defaults__</span><br><span class="line">(<span class="string">'spam'</span>, [<span class="string">'spam'</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>foo() <span class="keyword">is</span> foo.__defaults__[<span class="number">1</span>]</span><br><span class="line"><span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<p>The foo() function has a <strong>defaults</strong> attribute, a tuple of default values to use when no values for the arguments have been passed in. You can see the mutable list change as the function is called, and because the function returns the eggs list, you can also see that it is the exact same object as the second value in that tuple.</p>
 </blockquote>
 <p>那么进行改进：</p>
 <pre><code>def foo(bar=None):
