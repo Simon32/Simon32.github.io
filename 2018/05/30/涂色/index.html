@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="函数参数（5种）1 必选参数:def power(x): 2 默认参数:def power(x,n=2):     s = 1     while n&amp;gt;0:         n = n-1         s = s*x     return s  3 可变参数：def calcu(*numbers):     sum = 0     for n in numbers:         su">
+<meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485import cv2import numpy as npfrom matplo">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python学习笔记1：函数参数">
-<meta property="og:url" content="http://yoursite.com/2018/04/04/python参数类型/index.html">
+<meta property="og:title" content="闭合曲线内涂色code(辅助制作Ground truth)">
+<meta property="og:url" content="http://yoursite.com/2018/05/30/涂色/index.html">
 <meta property="og:site_name" content="iMAGe-Park">
-<meta property="og:description" content="函数参数（5种）1 必选参数:def power(x): 2 默认参数:def power(x,n=2):     s = 1     while n&amp;gt;0:         n = n-1         s = s*x     return s  3 可变参数：def calcu(*numbers):     sum = 0     for n in numbers:         su">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485import cv2import numpy as npfrom matplo">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-11T13:44:39.394Z">
+<meta property="og:updated_time" content="2018-05-30T03:59:04.525Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python学习笔记1：函数参数">
-<meta name="twitter:description" content="函数参数（5种）1 必选参数:def power(x): 2 默认参数:def power(x,n=2):     s = 1     while n&amp;gt;0:         n = n-1         s = s*x     return s  3 可变参数：def calcu(*numbers):     sum = 0     for n in numbers:         su">
+<meta name="twitter:title" content="闭合曲线内涂色code(辅助制作Ground truth)">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485import cv2import numpy as npfrom matplo">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/04/python参数类型/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/30/涂色/"/>
 
 
 
 
 
-  <title>Python学习笔记1：函数参数 | iMAGe-Park</title>
+  <title>闭合曲线内涂色code(辅助制作Ground truth) | iMAGe-Park</title>
   
 
 
@@ -257,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/04/python参数类型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/涂色/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="莲子熊猫">
@@ -274,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python学习笔记1：函数参数</h1>
+          <h1 class="post-title" itemprop="name headline">闭合曲线内涂色code(辅助制作Ground truth)</h1>
         
 
         <div class="post-meta">
@@ -286,8 +286,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-04T00:00:00+08:00">
-                2018-04-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T00:00:00+08:00">
+                2018-05-30
               </time>
             
 
@@ -321,28 +321,7 @@
       
 
       
-        <h1 id="函数参数（5种）"><a href="#函数参数（5种）" class="headerlink" title="函数参数（5种）"></a>函数参数（5种）</h1><h2 id="1-必选参数"><a href="#1-必选参数" class="headerlink" title="1 必选参数:"></a>1 必选参数:</h2><pre><code>def power(x):
-</code></pre><h2 id="2-默认参数"><a href="#2-默认参数" class="headerlink" title="2 默认参数:"></a>2 默认参数:</h2><pre><code>def power(x,n=2):
-    s = 1
-    while n&gt;0:
-        n = n-1
-        s = s*x
-    return s 
-</code></pre><h2 id="3-可变参数："><a href="#3-可变参数：" class="headerlink" title="3 可变参数："></a>3 可变参数：</h2><pre><code>def calcu(*numbers):
-    sum = 0
-    for n in numbers:
-        sum  = sum + n * n
-    return sum
-calcu(1,2,3)
-#若已经有一个list或者tuple
-nums = [1, 2, 3]    
-calcu(*nums)
-</code></pre><h2 id="4-命名关键字参数："><a href="#4-命名关键字参数：" class="headerlink" title="4 命名关键字参数："></a>4 命名关键字参数：</h2><pre><code>def person(name, age, *, city, job):
-    print(name, age, city,job)
-</code></pre><h2 id="5-关键字参数："><a href="#5-关键字参数：" class="headerlink" title="5 关键字参数："></a>5 关键字参数：</h2><pre><code>def person(name, age, **kw):
-    print(name,age,kw)
-</code></pre><hr>
-<p><strong>WARNING：</strong><br><br>在Python中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用。<strong><em>但是请注意，参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数</em></strong>。</p>
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">path = <span class="string">'C:\\Users\\Ashraf\\Desktop\\ground\\'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">red_bw2d</span><span class="params">(image)</span>:</span></span><br><span class="line">    img = image</span><br><span class="line">    r, c, _ = img.shape</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(r):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(c):</span><br><span class="line">            <span class="keyword">if</span> img[i, j][<span class="number">2</span>] &gt; img[i, j][<span class="number">0</span>] <span class="keyword">and</span> img[i, j][<span class="number">2</span>] &gt; img[i, j][<span class="number">1</span>]:</span><br><span class="line">                img[i, j][<span class="number">0</span>] = <span class="number">255</span></span><br><span class="line">                img[i,j][<span class="number">1</span>] = <span class="number">255</span></span><br><span class="line">                img[i,j][<span class="number">2</span>] = <span class="number">255</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                img[i, j][<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">                img[i, j][<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">                img[i, j][<span class="number">2</span>] = <span class="number">0</span></span><br><span class="line">    img = img[:, :, <span class="number">1</span>]</span><br><span class="line">    _, bin = cv2.threshold(img, <span class="number">127</span>, <span class="number">255</span>, cv2.THRESH_BINARY)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> bin</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">green_bw2d</span><span class="params">(image)</span>:</span></span><br><span class="line">    img = image</span><br><span class="line">    r, c, _ = img.shape</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(r):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(c):</span><br><span class="line">            <span class="keyword">if</span> img[i, j][<span class="number">1</span>] &gt; img[i, j][<span class="number">0</span>] <span class="keyword">and</span> img[i, j][<span class="number">1</span>] &gt; img[i, j][<span class="number">2</span>]:</span><br><span class="line">                img[i, j][<span class="number">0</span>] = <span class="number">255</span></span><br><span class="line">                img[i,j][<span class="number">1</span>] = <span class="number">255</span></span><br><span class="line">                img[i,j][<span class="number">2</span>] = <span class="number">255</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                img[i, j][<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">                img[i, j][<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">                img[i, j][<span class="number">2</span>] = <span class="number">0</span></span><br><span class="line">    img = img[:, :, <span class="number">1</span>]</span><br><span class="line">    _, bin = cv2.threshold(img, <span class="number">127</span>, <span class="number">255</span>, cv2.THRESH_BINARY)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> bin</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">blue_bw2d</span><span class="params">(image)</span>:</span></span><br><span class="line">    img = image</span><br><span class="line">    r, c, _ = img.shape</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(r):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(c):</span><br><span class="line">            <span class="keyword">if</span> img[i, j][<span class="number">0</span>] &gt; img[i, j][<span class="number">1</span>] <span class="keyword">and</span> img[i, j][<span class="number">0</span>] &gt; img[i, j][<span class="number">2</span>]:</span><br><span class="line">                img[i, j][<span class="number">0</span>] = <span class="number">255</span></span><br><span class="line">                img[i,j][<span class="number">1</span>] = <span class="number">255</span></span><br><span class="line">                img[i,j][<span class="number">2</span>] = <span class="number">255</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                img[i, j][<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">                img[i, j][<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">                img[i, j][<span class="number">2</span>] = <span class="number">0</span></span><br><span class="line">    img = img[:, :, <span class="number">1</span>]</span><br><span class="line">    _, bin = cv2.threshold(img, <span class="number">127</span>, <span class="number">255</span>, cv2.THRESH_BINARY)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> bin</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">denoise</span><span class="params">(image)</span>:</span></span><br><span class="line">    img = image</span><br><span class="line">    img = cv2.medianBlur(img, <span class="number">3</span>)</span><br><span class="line">    <span class="keyword">return</span> img</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fill</span><span class="params">(image, name)</span>:</span></span><br><span class="line">    point = (<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">    src = image.copy()</span><br><span class="line">    src = np.invert(src)</span><br><span class="line">    connectivity = <span class="number">4</span></span><br><span class="line">    flags = connectivity</span><br><span class="line">    flags |= cv2.FLOODFILL_FIXED_RANGE</span><br><span class="line">    cv2.floodFill(src, <span class="keyword">None</span>, point, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>), (<span class="number">100</span>,) * <span class="number">3</span>, (<span class="number">100</span>,) * <span class="number">3</span>, flags)</span><br><span class="line">    cv2.imwrite(name, src)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">function</span><span class="params">(img, name)</span>:</span></span><br><span class="line">    img = denoise(img)</span><br><span class="line">    img = red_bw2d(img)</span><br><span class="line">    img = denoise(img)</span><br><span class="line">    fill(img, name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Main</span></span><br><span class="line">img = cv2.imread(<span class="string">'./3.png'</span>, cv2.IMREAD_COLOR)</span><br><span class="line">name = <span class="string">'./test.jpg'</span></span><br><span class="line">function(img, name)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -406,8 +385,8 @@ calcu(*nums)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/30/NumPy学习笔记/" rel="next" title="NumPy笔记">
-                <i class="fa fa-chevron-left"></i> NumPy笔记
+              <a href="/2018/05/20/python坑/" rel="next" title="Python踩过的那些坑（1）">
+                <i class="fa fa-chevron-left"></i> Python踩过的那些坑（1）
               </a>
             
           </div>
@@ -415,10 +394,6 @@ calcu(*nums)
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/04/python装饰器/" rel="prev" title="Python学习笔记2：装饰器(decorator)">
-                Python学习笔记2：装饰器(decorator) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -468,17 +443,8 @@ calcu(*nums)
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -578,22 +544,6 @@ calcu(*nums)
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#函数参数（5种）"><span class="nav-number">1.</span> <span class="nav-text">函数参数（5种）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-必选参数"><span class="nav-number">1.1.</span> <span class="nav-text">1 必选参数:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-默认参数"><span class="nav-number">1.2.</span> <span class="nav-text">2 默认参数:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-可变参数："><span class="nav-number">1.3.</span> <span class="nav-text">3 可变参数：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-命名关键字参数："><span class="nav-number">1.4.</span> <span class="nav-text">4 命名关键字参数：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-关键字参数："><span class="nav-number">1.5.</span> <span class="nav-text">5 关键字参数：</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
